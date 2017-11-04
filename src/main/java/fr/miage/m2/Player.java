@@ -10,14 +10,18 @@ public class Player {
 	 * 
 	 * @param firstname
 	 * @param lastname
-	 * @param points
 	 */
-	public Player(String firstname, String lastname, int points) {
-
+	public Player(String firstname, String lastname) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.points = 0;
 	}
 
 	public void throwDice() {
 
 	}
 
+	public void update(Observable obs, Object obj){
+
+	}
 }

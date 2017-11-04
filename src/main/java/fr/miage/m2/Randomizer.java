@@ -5,8 +5,11 @@ public class Randomizer {
 	private int value;
 
 	public Randomizer() {
-		// TODO - implement fr.miage.m2.Randomizer.fr.miage.m2.Randomizer
-		throw new UnsupportedOperationException();
+		this.value = (int)Math.random() * ((6 - 1) + 1);
+	}
+
+	public int getValue() {
+		return value;
 	}
 
 	/**
@@ -14,11 +17,7 @@ public class Randomizer {
 	 * @param value
 	 */
 	public void setValue(int value) {
-
-	}
-
-	public void getValue() {
-
+		this.value = value;
 	}
 
 }

@@ -3,7 +3,7 @@ package fr.miage.m2;
 public class Entry {
 
 	private String name;
-	private int oints;
+	private int points;
 
 	/**
 	 * 
@@ -11,7 +11,8 @@ public class Entry {
 	 * @param points
 	 */
 	public Entry(String name, int points) {
-
+		this.name = name;
+		this.points = points;
 	}
 
 }
