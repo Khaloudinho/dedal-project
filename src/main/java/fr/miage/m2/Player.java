@@ -50,6 +50,6 @@ public class Player {
 	}
 
 	public String toString(){
-		return "Player - Firstname : " + this.firstname + " - Lastname : " + this.lastname + " - Points : " + this.points;
+		return "Player - Firstname : " + this.firstname + " - Lastname : " + this.lastname + " - Points : " + this.points + "\n";
 	}
 }

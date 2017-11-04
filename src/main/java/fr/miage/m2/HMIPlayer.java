@@ -7,8 +7,8 @@ public class HMIPlayer extends Player implements Observer {
 
     public HMIPlayer() { }
 
-    public HMIPlayer(String firstname, String lastname) {
-        super(firstname, lastname);
+    public HMIPlayer(Player p) {
+        super(p.getFirstname(), p.getLastname());
     }
 
     public String getFirstname() {
@@ -36,6 +36,8 @@ public class HMIPlayer extends Player implements Observer {
     }
 
     public void update(Observable obs, Object obj) {
-
+        if (obs instanceof HMIDice){
+            System.out.println(this.getFirstname() + " " + this.getLastname() + " dit que la valeur du dé est : " + ((HMIDice) obs).getValue());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package fr.miage.m2;
 
 import java.util.Observable;
+import java.util.Observer;
 
 public class HMIDice extends Observable {
 
@@ -26,6 +27,11 @@ public class HMIDice extends Observable {
     }
 
     public String toString(){
-        return "Dice - Id : " + this.id + " - Value : " + this.value;
+        return "Dice - Id : " + this.id + " - Value : " + this.value + "\n";
+    }
+
+    @Override
+    public synchronized void addObserver(Observer o) {
+        super.addObserver(o);
     }
 }

@@ -1,12 +1,12 @@
 package fr.miage.m2;
 
-public abstract class Dice {
+public class Dice {
 
 	private int value;
 	private static Randomizer r = new Randomizer();
 
-	public Dice() {
-
+	public Dice(int value) {
+		this.value = value;
 	}
 
 	public int getValue() {
