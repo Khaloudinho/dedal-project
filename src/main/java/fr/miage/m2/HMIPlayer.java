@@ -8,7 +8,7 @@ public class HMIPlayer extends Player implements Observer {
     public HMIPlayer() { }
 
     public HMIPlayer(Player p) {
-        super(p.getFirstname(), p.getLastname());
+        super(p.getFirstname(), p.getLastname(), new Dice());
     }
 
     public String getFirstname() {

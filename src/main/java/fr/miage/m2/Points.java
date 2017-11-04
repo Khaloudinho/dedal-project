@@ -2,8 +2,10 @@ package fr.miage.m2;
 
 public class Points {
 
-	public Points() {
+	private int points;
 
+	public Points(int points) {
+		this.points = points;
 	}
 
 	/**

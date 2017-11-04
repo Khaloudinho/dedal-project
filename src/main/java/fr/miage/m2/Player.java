@@ -2,8 +2,8 @@ package fr.miage.m2;
 
 public class Player {
 
-	private String firstname;
-	private String lastname;
+	private String firstname, lastname;
+	private Dice dice;
 	private int points;
 
 	public Player (){
@@ -15,9 +15,10 @@ public class Player {
 	 * @param firstname
 	 * @param lastname
 	 */
-	public Player(String firstname, String lastname) {
+	public Player(String firstname, String lastname, Dice dice) {
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.dice = dice;
 		this.points = 0;
 	}
 
@@ -46,7 +47,7 @@ public class Player {
 	}
 
 	public void throwDice() {
-
+		dice.roll();
 	}
 
 	public String toString(){

@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Player p = new Player("Guillaume", "Bertrand");
-        Player p2 = new Player("Khaled", "Bouguettoucha");
-        Player p3 = new Player("Alexandre", "Gadeau");
+        Player p = new Player("Guillaume", "Bertrand", new Dice());
+        Player p2 = new Player("Khaled", "Bouguettoucha", new Dice());
+        Player p3 = new Player("Alexandre", "Gadeau", new Dice());
 
         HMIPlayer hp = new HMIPlayer(p);
         HMIPlayer hp2 = new HMIPlayer(p2);
@@ -20,6 +20,7 @@ public class Main {
         hd.setValue(4);
         hd.setValue(6);
         hd.setValue(2);
+
     }
 
 }
