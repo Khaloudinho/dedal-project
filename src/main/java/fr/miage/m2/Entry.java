@@ -2,15 +2,15 @@ package fr.miage.m2;
 
 public class Entry {
 
-	private String Name;
-	private int Points;
+	private String name;
+	private int oints;
 
 	/**
 	 * 
-	 * @param Name
-	 * @param Points
+	 * @param name
+	 * @param points
 	 */
-	public Entry(String Name, int Points) {
+	public Entry(String name, int points) {
 
 	}
 

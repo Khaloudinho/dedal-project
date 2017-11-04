@@ -2,7 +2,7 @@ package fr.miage.m2;
 
 public class Dice {
 
-	private int Value;
+	private int value;
 
 	public Dice() {
 

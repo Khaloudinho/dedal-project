@@ -8,10 +8,10 @@ public class Points {
 
 	/**
 	 * 
-	 * @param Name
-	 * @param Points
+	 * @param name
+	 * @param points
 	 */
-	public void add(String Name, int Points) {
+	public void add(String name, int points) {
 
 	}
 

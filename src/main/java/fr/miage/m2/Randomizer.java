@@ -2,7 +2,7 @@ package fr.miage.m2;
 
 public class Randomizer {
 
-	private int Value;
+	private int value;
 
 	public Randomizer() {
 		// TODO - implement fr.miage.m2.Randomizer.fr.miage.m2.Randomizer
@@ -11,9 +11,9 @@ public class Randomizer {
 
 	/**
 	 * 
-	 * @param Value
+	 * @param value
 	 */
-	public void setValue(int Value) {
+	public void setValue(int value) {
 
 	}
 

@@ -2,17 +2,17 @@ package fr.miage.m2;
 
 public class Player {
 
-	private String Firstname;
-	private String Lastname;
-	private int Points;
+	private String firstname;
+	private String lastname;
+	private int points;
 
 	/**
 	 * 
-	 * @param Firstname
-	 * @param Lastname
-	 * @param Points
+	 * @param firstname
+	 * @param lastname
+	 * @param points
 	 */
-	public Player(String Firstname, String Lastname, int Points) {
+	public Player(String firstname, String lastname, int points) {
 
 	}
 
