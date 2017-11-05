@@ -14,9 +14,9 @@
          <BorderPane.margin>
             <Insets top="30.0" />
          </BorderPane.margin>
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
+          <font>
+              <Font name="Arial Bold" size="48.0" />
+          </font>
       </Text>
    </top>
    <center>
