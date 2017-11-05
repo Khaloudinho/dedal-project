@@ -51,8 +51,8 @@ public class Controller implements Initializable {
         System.out.println(fxmlLoader.getLocation());
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initStyle(StageStyle.);
         stage.setTitle("ABC");
         stage.setScene(new Scene(root1));
         stage.show();
