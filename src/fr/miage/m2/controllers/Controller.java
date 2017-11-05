@@ -7,14 +7,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    @FXML
 
-    @Override
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    openUserView
-            openRulesView
-    openAboutView
+    // openUserView
+    // openRulesView
+    // openAboutView
 }
