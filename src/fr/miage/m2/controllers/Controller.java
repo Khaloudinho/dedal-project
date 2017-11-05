@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Controller implements Initializable {
+
     @FXML
     private Button play;
 
@@ -26,7 +27,6 @@ public class Controller implements Initializable {
     @FXML
     private Button about;
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
