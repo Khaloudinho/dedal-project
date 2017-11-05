@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -8,7 +9,7 @@
    <children>
       <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="400.0" prefWidth="581.0">
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" textAlignment="CENTER" wrappingWidth="135.7109375" BorderPane.alignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="About" textAlignment="CENTER" wrappingWidth="152.7109375" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="30.0" top="30.0" />
                </BorderPane.margin>
@@ -18,7 +19,7 @@
             </Text>
          </top>
          <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The game &quot;DiceGame&quot; is based on simple rules. Two players could join a game and then each player has to throw his two dices. We sum up the points of these two dices and then we get the points of the player." textAlignment="JUSTIFY" wrappingWidth="538.7451171875" BorderPane.alignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dedal-project is an application made in JavaFX for a school project in a course which teaches us how to use java design patterns. This application has been coded by Guillaume Bertrand &amp; Khaled Bouguettoucha, two students in Master's Degree in Computer Science Applied to Business Management (french name : MIAGE)" textAlignment="JUSTIFY" wrappingWidth="538.7451171875" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
