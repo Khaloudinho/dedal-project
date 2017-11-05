@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.miage.m2.controllers.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.miage.m2.controllers.Controller">
     <top>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dedal Project" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -19,14 +19,28 @@
             </font>
         </Text>
     </top>
-    <center>
-        <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+   <center>
+        <AnchorPane minHeight="171.0" minWidth="319.0" prefHeight="171.0" prefWidth="479.0" BorderPane.alignment="CENTER">
             <children>
-                <ButtonBar prefHeight="349.0" prefWidth="428.0">
+            <Text layoutX="57.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the Dedal Project which is a dice game. You just need to find someone to play and to throw your two dices. Good luck !" textAlignment="CENTER" wrappingWidth="377.98235988616943">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Text>
+                <ButtonBar layoutY="97.0" prefHeight="139.0" prefWidth="369.0">
                     <buttons>
-                        <Button fx:id="play" mnemonicParsing="false" onMouseClicked="#openUserView" text="Play" />
-                        <Button fx:id="rules" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Rules" />
-                        <Button fx:id="about" mnemonicParsing="false" onMouseClicked="#openAboutView" text="About" />
+                        <Button fx:id="play" mnemonicParsing="false" onMouseClicked="#openUserView" text="Play">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Button>
+                        <Button fx:id="rules" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Rules">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Button>
+                        <Button fx:id="about" minWidth="66.0" mnemonicParsing="false" onMouseClicked="#openAboutView" prefHeight="26.0" text="About">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Button>
                     </buttons>
                     <opaqueInsets>
                         <Insets />
@@ -34,5 +48,5 @@
                 </ButtonBar>
             </children>
         </AnchorPane>
-    </center>
+   </center>
 </BorderPane>
