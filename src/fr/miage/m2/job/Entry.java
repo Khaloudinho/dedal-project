@@ -1,9 +1,20 @@
 package fr.miage.m2.job;
 
-public class Entry {
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import java.io.Serializable;
+
+@Entity
+public class Entry implements Serializable {
 
 	private String name;
 	private int points;
+
+	@OneToOne
+	Points point;
+
+	public Entry() {
+	}
 
 	/**
 	 * 
@@ -29,5 +40,13 @@ public class Entry {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	public Points getPoint() {
+		return point;
+	}
+
+	public void setPoint(Points point) {
+		this.point = point;
 	}
 }

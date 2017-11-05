@@ -1,6 +1,10 @@
 package fr.miage.m2.job;
 
-public class Dice {
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+public class Dice implements Serializable {
 
 	private int value;
 	private static Randomizer r = new Randomizer();

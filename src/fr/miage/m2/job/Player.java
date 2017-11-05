@@ -1,10 +1,22 @@
 package fr.miage.m2.job;
 
-public class Player {
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.io.Serializable;
+import java.util.Set;
+
+@Entity
+public class Player implements Serializable {
 
 	private String firstname, lastname;
-	private Dice dice;
 	private int points;
+
+	@OneToMany
+	private Set<Dice> dices;
+
+	@OneToOne
+	private Game game;
 
 	public Player (){
 
@@ -15,10 +27,10 @@ public class Player {
 	 * @param firstname
 	 * @param lastname
 	 */
-	public Player(String firstname, String lastname, Dice dice) {
+	public Player(String firstname, String lastname, Set<Dice> dices) {
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.dice = dice;
+		this.dices = dices;
 		this.points = 0;
 	}
 
@@ -47,7 +59,26 @@ public class Player {
 	}
 
 	public void throwDice() {
-		dice.roll();
+		for (Dice dice:
+			 this.dices) {
+			dice.roll();
+		}
+	}
+
+	public Set<Dice> getDices() {
+		return dices;
+	}
+
+	public void setDices(Set<Dice> dices) {
+		this.dices = dices;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
 
 	public String toString(){
