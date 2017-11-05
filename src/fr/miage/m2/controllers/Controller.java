@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,8 @@ public class Controller implements Initializable {
     @FXML
     private Button about;
 
+    private static String relativePath = "src/fr/miage/m2/";
+
     public void initialize(URL location, ResourceBundle resources) {
 
     }
@@ -47,8 +50,9 @@ public class Controller implements Initializable {
     }
 
     private void openView(String view, String viewName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/"+view));
-        Parent root1 = (Parent) fxmlLoader.load();
+        URL url = new File(relativePath + "resources/" + view).toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(relativePath + "resources/" + view));
+        Parent root1 = fxmlLoader.load(url);
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initStyle(StageStyle.DECORATED);
