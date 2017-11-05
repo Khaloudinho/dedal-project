@@ -33,27 +33,27 @@ public class Controller implements Initializable {
 
     @FXML
     public void openUserView() throws IOException {
-        this.openView("user.fxml");
+        this.openView("user.fxml", "Jeu");
     }
 
     @FXML
     public void openRulesView() throws IOException {
-        this.openView("rules.fxml");
+        this.openView("rules.fxml", "Règles");
     }
 
     @FXML
     public void openAboutView() throws IOException {
-        this.openView("about.fxml");
+        this.openView("about.fxml", "A propos");
     }
 
-    private void openView(String view) throws IOException {
+    private void openView(String view, String viewName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/"+view));
         System.out.println(fxmlLoader.getLocation());
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("ABC");
+        stage.setTitle(viewName);
         stage.setScene(new Scene(root1));
         stage.show();
     }
