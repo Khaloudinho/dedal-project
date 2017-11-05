@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -36,17 +35,17 @@ public class Controller implements Initializable {
 
     @FXML
     public void openUserView() throws IOException {
-        this.openView("user.fxml", "Jeu");
+        this.openView("user.fxml", "Game");
     }
 
     @FXML
     public void openRulesView() throws IOException {
-        this.openView("rules.fxml", "Règles");
+        this.openView("rules.fxml", "Rules");
     }
 
     @FXML
     public void openAboutView() throws IOException {
-        this.openView("about.fxml", "À propos");
+        this.openView("about.fxml", "About");
     }
 
     private void openView(String view, String viewName) throws IOException {
