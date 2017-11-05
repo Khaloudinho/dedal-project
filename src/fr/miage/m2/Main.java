@@ -17,7 +17,7 @@ public class Main extends Application {
         URL url = new File("src/fr/miage/m2/resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("Dedal - BERTRAND - BOUGUETTOUCHA");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 

@@ -48,7 +48,6 @@ public class Controller implements Initializable {
 
     private void openView(String view, String viewName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/"+view));
-        System.out.println(fxmlLoader.getLocation());
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
