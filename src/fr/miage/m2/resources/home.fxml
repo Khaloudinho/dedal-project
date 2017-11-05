@@ -9,30 +9,30 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.miage.m2.controllers.Controller">
-   <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dedal Project" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="30.0" />
-         </BorderPane.margin>
-          <font>
-              <Font name="Arial Bold" size="48.0" />
-          </font>
-      </Text>
-   </top>
-   <center>
-      <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
-         <children>
-            <ButtonBar prefHeight="349.0" prefWidth="428.0">
-              <buttons>
-                  <Button fx:id="play" mnemonicParsing="false" onMouseClicked="#openUserView" text="Play" />
-                  <Button fx:id="rules" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Rules" />
-                  <Button fx:id="about" mnemonicParsing="false" onMouseClicked="#openAboutView" text="About" />
-              </buttons>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </ButtonBar>
-         </children>
-      </AnchorPane>
-   </center>
+    <top>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dedal Project" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="30.0" />
+            </BorderPane.margin>
+            <font>
+                <Font name="Arial Bold" size="48.0" />
+            </font>
+        </Text>
+    </top>
+    <center>
+        <AnchorPane minHeight="200.0" minWidth="400.0" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <children>
+                <ButtonBar prefHeight="349.0" prefWidth="428.0">
+                    <buttons>
+                        <Button fx:id="play" mnemonicParsing="false" onMouseClicked="#openUserView" text="Play" />
+                        <Button fx:id="rules" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Rules" />
+                        <Button fx:id="about" mnemonicParsing="false" onMouseClicked="#openAboutView" text="About" />
+                    </buttons>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </ButtonBar>
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>
