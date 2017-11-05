@@ -46,7 +46,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void openAboutView() throws IOException {
-        this.openView("about.fxml", "A propos");
+        this.openView("about.fxml", "À propos");
     }
 
     private void openView(String view, String viewName) throws IOException {
