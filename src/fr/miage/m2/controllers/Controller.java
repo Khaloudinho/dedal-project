@@ -1,4 +1,20 @@
 package fr.miage.m2.controllers;
 
-public class Controller {
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
+    @FXML
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    openUserView
+            openRulesView
+    openAboutView
 }

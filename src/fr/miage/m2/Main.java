@@ -13,10 +13,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //getClass().getResource("sample.fxml")
-        URL url = new File("src/fr/miage/m2/resources/sample.fxml").toURL();
+        //getClass().getResource("home.fxml")
+        URL url = new File("src/fr/miage/m2/resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Dedal - BERTRAND - BOUGUETTOUCHA");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
