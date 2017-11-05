@@ -15,7 +15,7 @@
             <Insets top="30.0" />
          </BorderPane.margin>
          <font>
-            <Font name="Lucida Sans Demibold" size="18.0" />
+            <Font name="Arial" size="18.0" />
          </font>
       </Text>
    </top>
@@ -25,8 +25,8 @@
             <ButtonBar prefHeight="349.0" prefWidth="428.0">
               <buttons>
                   <Button fx:id="play" mnemonicParsing="false" onMouseClicked="#openUserView" text="Jouer" />
-                  <Button fx:id="regles" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Règles" />
-                <Button fx:id="about" mnemonicParsing="false" onMouseClicked="#openAboutView" text="A propos" />
+                  <Button fx:id="rules" mnemonicParsing="false" onMouseClicked="#openRulesView" text="Règles" />
+                  <Button fx:id="about" mnemonicParsing="false" onMouseClicked="#openAboutView" text="A propos" />
               </buttons>
                <opaqueInsets>
                   <Insets />
