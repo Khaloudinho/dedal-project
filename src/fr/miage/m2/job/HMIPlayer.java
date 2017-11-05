@@ -1,4 +1,4 @@
-package sample.metier;
+package fr.miage.m2.job;
 
 import java.util.Observable;
 import java.util.Observer;
