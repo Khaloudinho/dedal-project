@@ -14,8 +14,8 @@ public class Game implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
 
-	@OneToMany
-	private List<Player> players = new ArrayList<Player>();
+	@OneToOne
+	private Player player = new Player();
 
 	@OneToOne
 	Points point;
@@ -40,10 +40,7 @@ public class Game implements Serializable {
 	}
 
 	public void start() {
-		for (Player player:
-			 this.players) {
-			player.throwDice();
-		}
+		player.throwDice();
 	}
 
 	public Points getPoints() {
@@ -78,12 +75,12 @@ public class Game implements Serializable {
 		Id = id;
 	}
 
-	public List<Player> getPlayers() {
-		return players;
+	public Player getPlayer() {
+		return player;
 	}
 
-	public void setPlayers(List<Player> players) {
-		this.players = players;
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	public int getIndexCurrentPlayer() {
@@ -110,22 +107,22 @@ public class Game implements Serializable {
 		this.currentTurn = currentTurn;
 	}
 
-	public void determineFutureGamerIndex(){
-		if(this.indexCurrentPlayer<players.size()-1){
+	/*public void determineFutureGamerIndex(){
+		if(this.indexCurrentPlayer < players.size()-1){
 			this.indexCurrentPlayer++;
 		}else{
 			this.indexCurrentPlayer=0;
 		}
-	}
+	}*/
 
 	public void doTurn(){
 		//this.joueurCourant.reseterCapaciteJoueur();
-		this.determineFutureGamerIndex();
+		//this.determineFutureGamerIndex();
 		System.out.println(this.getCurrentPlayer().getFirstname()+" joue..");
 		this.currentTurn++;
 	}
 
 	public Player getCurrentPlayer(){
-		return players.get(indexCurrentPlayer);
+		return this.player;
 	}
 }

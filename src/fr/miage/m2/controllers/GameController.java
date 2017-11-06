@@ -78,7 +78,7 @@ public class GameController extends Controller implements Initializable {
         Player currentPlayer = game.getCurrentPlayer();
         if(!currentPlayer.isCanPlay()){
             this.throwDices.setDisable(true);
-        }else {
+        } else {
             this.throwDices.setDisable(false);
         }
     }
@@ -86,18 +86,18 @@ public class GameController extends Controller implements Initializable {
     @FXML
     public void doTurn(){
         Player currentPlayer = game.getCurrentPlayer();
-        if(game.getCurrentTurn()<game.getNUMBER_OF_TURN()) {
+        if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
             game.doTurn();
             currentPlayer.setCanPlay(true);
             setPlayerName();
             refreshView();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Game over");
             alert.setHeaderText("Game over");
             // A changer
-            int finalScore=diceOne.getValue()+diceTwo.getValue();
-            alert.setContentText("Congratulations ! You won with a final score of " + finalScore + " points !");
+            int finalScore = diceOne.getValue()+diceTwo.getValue();
+            alert.setContentText("Congratulations !\nYou won with a final score of " + finalScore + " points !");
 
             alert.showAndWait();
         }

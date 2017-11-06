@@ -22,10 +22,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Player khaled = new Player("Khaled", "BOUGUETTOUCHA", null);
 
-        List<Player> players = new ArrayList<Player>();
-        players.add(khaled);
+        String firstname, lastname;
+
+        Player player = new Player("Khaled", "BOUGUETTOUCHA", null);
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -35,9 +35,9 @@ public class Main extends Application {
         dices.add(diceTwo);
 
         Game game = Game.getInstance();
-        game.setPlayers(players);
+        game.setPlayer(player);
         game.setDices(dices);
-        khaled.setDices(dices);
+        player.setDices(dices);
 
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
