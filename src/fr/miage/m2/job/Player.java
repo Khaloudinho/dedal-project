@@ -1,13 +1,15 @@
 package fr.miage.m2.job;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 public class Player implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Id;
 
 	private String firstname, lastname;
 	private int points;
@@ -83,5 +85,13 @@ public class Player implements Serializable {
 
 	public String toString(){
 		return "Player - Firstname : " + this.firstname + " - Lastname : " + this.lastname + " - Points : " + this.points + "\n";
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 }

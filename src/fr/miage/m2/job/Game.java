@@ -1,15 +1,18 @@
 package fr.miage.m2.job;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 public class Game implements Serializable {
 
-	private Player p, p2;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Id;
+
+	@OneToMany
+	private Set<Player> players;
 
 	@OneToOne
 	Points point;
@@ -20,30 +23,15 @@ public class Game implements Serializable {
 	public Game() {
 	}
 
-	public Game(Player p, Player p2) {
-		this.p = p;
-		this.p2 = p2;
+	public Game(Set<Player> players) {
+		this.players = players;
 	}
 
 	public void start() {
-		p.throwDice();
-		p2.throwDice();
-	}
-
-	public Player getP() {
-		return p;
-	}
-
-	public void setP(Player p) {
-		this.p = p;
-	}
-
-	public Player getP2() {
-		return p2;
-	}
-
-	public void setP2(Player p2) {
-		this.p2 = p2;
+		for (Player player:
+			 this.players) {
+			player.throwDice();
+		}
 	}
 
 	public Points getPoints() {
@@ -68,5 +56,21 @@ public class Game implements Serializable {
 
 	public void setDices(Set<Dice> dices) {
 		this.dices = dices;
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public Set<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(Set<Player> players) {
+		this.players = players;
 	}
 }
