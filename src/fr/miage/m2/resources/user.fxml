@@ -60,6 +60,7 @@
                           <Font name="Arial" size="18.0" />
                       </font>
                   </Text>
+                  <Text fx:id="turn" strokeType="OUTSIDE" strokeWidth="0.0" text="Tour : 0/10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </bottom>

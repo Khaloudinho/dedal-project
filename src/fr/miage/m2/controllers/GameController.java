@@ -33,10 +33,10 @@ public class GameController extends Controller implements Initializable {
     private Text finalScore;
 
     @FXML
-    private Button throwDices;
+    private Text turn;
 
     @FXML
-    private Button doTurn;
+    private Button throwDices;
 
     @FXML
     private ImageView diceOneImage;
@@ -92,6 +92,8 @@ public class GameController extends Controller implements Initializable {
 
             alert.showAndWait();
         }
+
+        this.turn.setText("Tour : "+game.getCurrentTurn()+"/"+game.getNUMBER_OF_TURN());
     }
 
     @FXML
