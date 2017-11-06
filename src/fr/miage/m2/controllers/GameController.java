@@ -4,6 +4,7 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,8 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GameController extends Controller {
+public class GameController extends Controller implements Initializable {
 
     @FXML
     private Text playerName;
@@ -45,8 +47,17 @@ public class GameController extends Controller {
     private Dice diceOne = game.getDices().get(0);
     private Dice diceTwo = game.getDices().get(1);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Player currentPlayer = game.getCurrentPlayer();
+        this.updateCurrentPlayerName();
+    }
 
     public void setPlayerName() {
+        this.updateCurrentPlayerName();
+    }
+
+    private void updateCurrentPlayerName(){
         Player currentPlayer = game.getCurrentPlayer();
         this.playerName.setText("Player : " + currentPlayer.getLastname() + " " + currentPlayer.getFirstname());
     }
@@ -63,10 +74,21 @@ public class GameController extends Controller {
         this.finalScore.setText("Final score : "+String.valueOf(diceOne.getValue()+diceTwo.getValue()));
     }
 
+    public void setThrowDiceButton(){
+        Player currentPlayer = game.getCurrentPlayer();
+        if(!currentPlayer.isCanPlay()){
+            this.throwDices.setDisable(true);
+        }else {
+            this.throwDices.setDisable(false);
+        }
+    }
+
     @FXML
     public void doTurn(){
+        Player currentPlayer = game.getCurrentPlayer();
         if(game.getCurrentTurn()<game.getNUMBER_OF_TURN()) {
             game.doTurn();
+            currentPlayer.setCanPlay(true);
             setPlayerName();
             refreshView();
         }else{
@@ -87,6 +109,7 @@ public class GameController extends Controller {
         int[] results;
         results=currentPlayer.throwDice();
         updateImages(results);
+        currentPlayer.setCanPlay(false);
         refreshView();
     }
 
@@ -106,6 +129,7 @@ public class GameController extends Controller {
         setScoreDiceOne();
         setScoreDiceTwo();
         setFinalScore();
+        setThrowDiceButton();
     }
 
     public void openView(String view, String viewName) throws IOException {

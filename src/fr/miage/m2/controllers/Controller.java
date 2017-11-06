@@ -29,6 +29,7 @@ public class Controller implements Initializable {
 
     protected static String relativePath = "src/fr/miage/m2/";
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }

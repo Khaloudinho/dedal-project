@@ -97,4 +97,11 @@ public class Player implements Serializable {
 		Id = id;
 	}
 
+	public boolean isCanPlay() {
+		return canPlay;
+	}
+
+	public void setCanPlay(boolean canPlay) {
+		this.canPlay = canPlay;
+	}
 }
