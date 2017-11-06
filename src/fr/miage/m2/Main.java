@@ -7,14 +7,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main extends Application {
 
@@ -23,9 +22,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        String firstname, lastname;
+        String firstname = "", lastname = "";
 
-        Player player = new Player("Khaled", "BOUGUETTOUCHA", null);
+        TextInputDialog dialog = new TextInputDialog("walter");
+        dialog.setTitle("Enter your name");
+        dialog.setHeaderText("Please enter your complete name below");
+        dialog.setContentText("Firstname : ");
+        //dialog.setContentText("Lastname : ");
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            firstname = result.get().toString();
+            //lastname = result.get().toString();
+        }
+
+        Player player = new Player(firstname, lastname, null);
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
