@@ -59,10 +59,12 @@ public class Player implements Serializable {
 		this.points = points;
 	}
 
-	public void throwDice() {
-		for (Dice dice : this.dices) {
-			dice.roll();
+	public int[] throwDice() {
+		int [] results = new int[2];
+		for (int i=0; i<dices.size();i++) {
+			results[i]=dices.get(i).roll();
 		}
+		return results;
 	}
 
 	public List<Dice> getDices() {

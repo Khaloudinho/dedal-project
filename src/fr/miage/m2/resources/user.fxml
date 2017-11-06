@@ -89,8 +89,8 @@
                         <Insets left="50.0" />
                      </GridPane.margin>
                   </Button>
-                  <ImageView fitHeight="77.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-                  <ImageView fitHeight="75.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ImageView fx:id="diceOneImage" fitHeight="77.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <ImageView fx:id="diceTwoImage" fitHeight="75.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Text fx:id="playerName" strokeType="OUTSIDE" strokeWidth="0.0" text="Player : " wrappingWidth="322.82343304157257">
                      <font>
                         <Font name="Arial" size="18.0" />

@@ -28,8 +28,9 @@ public class Dice implements Serializable {
 		this.value = value;
 	}
 
-	public void roll() {
+	public int roll() {
 		this.value = r.getValue();
+		return this.value;
 	}
 
 	public int getId() {

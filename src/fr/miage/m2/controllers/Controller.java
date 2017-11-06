@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     @FXML
     private Button about;
 
-    private static String relativePath = "src/fr/miage/m2/";
+    protected static String relativePath = "src/fr/miage/m2/";
 
     public void initialize(URL location, ResourceBundle resources) {
 

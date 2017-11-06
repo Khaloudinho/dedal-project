@@ -4,10 +4,15 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class GameController extends Controller {
 
@@ -28,6 +33,12 @@ public class GameController extends Controller {
 
     @FXML
     private Button doTurn;
+
+    @FXML
+    private ImageView diceOneImage;
+
+    @FXML
+    private ImageView diceTwoImage;
 
     private Game game = Game.getInstance();
     private Dice diceOne = game.getDices().get(0);
@@ -59,9 +70,26 @@ public class GameController extends Controller {
     }
 
     @FXML
-    public void throwCurrentGameDices(){
+    public void throwCurrentGameDices() throws MalformedURLException {
         Player currentPlayer = game.getCurrentPlayer();
-        currentPlayer.throwDice();
+        int[] results;
+        results=currentPlayer.throwDice();
+
+        // For windaube
+        //URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0]+".png").toURL();
+        //URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1]+".png").toURL();
+
+        URL urlDiceOne = new File(relativePath + "resources/pictures/" + 1+".png").toURL();
+        URL urlDiceTwo = new File(relativePath + "resources/pictures/" + 2+".png").toURL();
+
+        //String urlDiceOne = relativePath + "resources/pictures/" + 1 +".png";
+        //String urlDiceTwo = relativePath + "resources/pictures/" + 2 +".png";
+
+        System.out.println(urlDiceOne);
+        System.out.println(urlDiceTwo);
+
+        this.diceOneImage.setImage(new Image(String.valueOf(urlDiceOne)));
+        this.diceTwoImage.setImage(new Image(String.valueOf(urlDiceTwo)));
     }
 
     public void refreshView(){
