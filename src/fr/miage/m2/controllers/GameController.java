@@ -51,15 +51,15 @@ public class GameController extends Controller {
     }
 
     public void setScoreDiceOne() {
-        this.scoreDiceOne.setText("Score dice 1: "+String.valueOf(diceOne.getValue()));
+        this.scoreDiceOne.setText("Score dice 1 : "+String.valueOf(diceOne.getValue()));
     }
 
     public void setScoreDiceTwo() {
-        this.scoreDiceTwo.setText("Score dice 2: "+String.valueOf(diceTwo.getValue()));
+        this.scoreDiceTwo.setText("Score dice 2 : "+String.valueOf(diceTwo.getValue()));
     }
 
     public void setFinalScore() {
-        this.finalScore.setText("Final score: "+String.valueOf(diceOne.getValue()+diceTwo.getValue()));
+        this.finalScore.setText("Final score : "+String.valueOf(diceOne.getValue()+diceTwo.getValue()));
     }
 
     @FXML
