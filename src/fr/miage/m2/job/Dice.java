@@ -13,7 +13,6 @@ public class Dice implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
 
-
 	private int value;
 	private static Randomizer r = new Randomizer();
 

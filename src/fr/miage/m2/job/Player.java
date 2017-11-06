@@ -20,9 +20,7 @@ public class Player implements Serializable {
 	@OneToOne
 	private Game game;
 
-	public Player (){
-
-	}
+	public Player () {}
 
 	/**
 	 * 
@@ -61,8 +59,7 @@ public class Player implements Serializable {
 	}
 
 	public void throwDice() {
-		for (Dice dice:
-			 this.dices) {
+		for (Dice dice : this.dices) {
 			dice.roll();
 		}
 	}
