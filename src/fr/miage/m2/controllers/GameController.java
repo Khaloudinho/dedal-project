@@ -74,16 +74,17 @@ public class GameController extends Controller {
         Player currentPlayer = game.getCurrentPlayer();
         int[] results;
         results=currentPlayer.throwDice();
+        updateImages(results);
+        refreshView();
+    }
 
+    private void updateImages(int[] results) throws MalformedURLException {
         // For windaube
-        //URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0]+".png").toURL();
-        //URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1]+".png").toURL();
-
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
         URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
 
-        System.out.println(urlDiceOne);
-        System.out.println(urlDiceTwo);
+        //System.out.println(urlDiceOne);
+        //System.out.println(urlDiceTwo);
 
         this.diceOneImage.setImage(new Image(String.valueOf(urlDiceOne)));
         this.diceTwoImage.setImage(new Image(String.valueOf(urlDiceTwo)));
