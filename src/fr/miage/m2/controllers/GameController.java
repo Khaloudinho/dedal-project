@@ -75,21 +75,22 @@ public class GameController extends Controller implements Initializable {
         this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
     }
 
-    public void setThrowDiceButton(){
+    /*public void setThrowDiceButton(){
         Player currentPlayer = game.getCurrentPlayer();
         if(!currentPlayer.isCanPlay()){
             this.throwDices.setDisable(true);
         } else {
             this.throwDices.setDisable(false);
         }
-    }
+    }*/
 
     @FXML
     public void doTurn(){
         Player currentPlayer = game.getCurrentPlayer();
         if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
             game.doTurn();
-            currentPlayer.setCanPlay(true);
+            //currentPlayer.setCanPlay(true);
+            this.throwDices.setDisable(true);
             setPlayerName();
             refreshView();
         } else {
@@ -97,7 +98,7 @@ public class GameController extends Controller implements Initializable {
             alert.setTitle("Game over");
             alert.setHeaderText("Game over");
             // A changer
-            int finalScore = diceOne.getValue()+diceTwo.getValue();
+            int finalScore = game.getPoint().getPoints();
             alert.setContentText("Congratulations !\nYou won with a final score of " + finalScore + " points !");
 
             alert.showAndWait();
@@ -116,7 +117,9 @@ public class GameController extends Controller implements Initializable {
         updateImages(results);
         refreshView();
 
-        currentPlayer.setCanPlay(false);
+        //currentPlayer.setCanPlay(false);
+        this.throwDices.setDisable(true);
+
     }
 
     private int computeScoreCalculation(){
@@ -145,7 +148,7 @@ public class GameController extends Controller implements Initializable {
         setScoreDiceOne();
         setScoreDiceTwo();
         setFinalScore();
-        setThrowDiceButton();
+        //setThrowDiceButton();
     }
 
     public void openView(String view, String viewName) throws IOException {
