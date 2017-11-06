@@ -23,11 +23,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Player khaled = new Player("Khaled", "BOUGUETTOUCHA", null);
-        Player guillaume = new Player("Guillaume", "BERTRAND", null);
 
         List<Player> players = new ArrayList<Player>();
         players.add(khaled);
-        players.add(guillaume);
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -40,7 +38,6 @@ public class Main extends Application {
         game.setPlayers(players);
         game.setDices(dices);
         khaled.setDices(dices);
-        guillaume.setDices(dices);
 
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);

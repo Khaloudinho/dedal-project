@@ -25,6 +25,9 @@ public class Game implements Serializable {
 
 	private int indexCurrentPlayer=0;
 
+	private int NUMBER_OF_TURN=10;
+	private int currentTurn=0;
+
 	private static class GameWrapper{
 		private static Game instanceGame = new Game();
 	}
@@ -83,6 +86,30 @@ public class Game implements Serializable {
 		this.players = players;
 	}
 
+	public int getIndexCurrentPlayer() {
+		return indexCurrentPlayer;
+	}
+
+	public void setIndexCurrentPlayer(int indexCurrentPlayer) {
+		this.indexCurrentPlayer = indexCurrentPlayer;
+	}
+
+	public int getNUMBER_OF_TURN() {
+		return NUMBER_OF_TURN;
+	}
+
+	public void setNUMBER_OF_TURN(int NUMBER_OF_TURN) {
+		this.NUMBER_OF_TURN = NUMBER_OF_TURN;
+	}
+
+	public int getCurrentTurn() {
+		return currentTurn;
+	}
+
+	public void setCurrentTurn(int currentTurn) {
+		this.currentTurn = currentTurn;
+	}
+
 	public void determineFutureGamerIndex(){
 		if(this.indexCurrentPlayer<players.size()-1){
 			this.indexCurrentPlayer++;
@@ -95,6 +122,7 @@ public class Game implements Serializable {
 		//this.joueurCourant.reseterCapaciteJoueur();
 		this.determineFutureGamerIndex();
 		System.out.println(this.getCurrentPlayer().getFirstname()+" joue..");
+		this.currentTurn++;
 	}
 
 	public Player getCurrentPlayer(){

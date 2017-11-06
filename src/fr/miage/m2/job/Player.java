@@ -21,6 +21,8 @@ public class Player implements Serializable {
 	@OneToOne
 	private Game game;
 
+	private boolean canPlay;
+
 	public Player () {}
 
 	/**

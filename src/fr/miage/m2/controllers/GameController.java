@@ -4,6 +4,7 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -64,9 +65,20 @@ public class GameController extends Controller {
 
     @FXML
     public void doTurn(){
-        game.doTurn();
-        setPlayerName();
-        refreshView();
+        if(game.getCurrentTurn()<game.getNUMBER_OF_TURN()) {
+            game.doTurn();
+            setPlayerName();
+            refreshView();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("End of game");
+            // A changer
+            int finalScore=diceOne.getValue()+diceTwo.getValue();
+            alert.setContentText("You have win with a final score of "+finalScore+" points !");
+
+            alert.showAndWait();
+        }
     }
 
     @FXML
