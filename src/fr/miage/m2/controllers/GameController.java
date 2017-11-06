@@ -93,11 +93,11 @@ public class GameController extends Controller implements Initializable {
             refreshView();
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("End of game");
+            alert.setTitle("Game over");
+            alert.setHeaderText("Game over");
             // A changer
             int finalScore=diceOne.getValue()+diceTwo.getValue();
-            alert.setContentText("You have win with a final score of "+finalScore+" points !");
+            alert.setContentText("Congratulations ! You won with a final score of " + finalScore + " points !");
 
             alert.showAndWait();
         }
