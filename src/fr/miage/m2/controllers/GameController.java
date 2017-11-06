@@ -36,12 +36,13 @@ public class GameController extends Controller {
 
     public void setPlayerName() {
         Player currentPlayer = game.getCurrentPlayer();
-        this.playerName.setText("Player: " +currentPlayer.getLastname()+" "+currentPlayer.getFirstname());
+        this.playerName.setText("Player : " + currentPlayer.getLastname() + " " + currentPlayer.getFirstname());
     }
 
     public void setScoreDiceOne() {
         this.scoreDiceOne.setText(String.valueOf(diceOne.getValue()));
     }
+
     public void setScoreDiceTwo() {
         this.scoreDiceTwo.setText(String.valueOf(diceTwo.getValue()));
     }
@@ -58,14 +59,15 @@ public class GameController extends Controller {
     }
 
     @FXML
-    public void throwCurrentGamerDices(){
-        //currentPlayer.throwDice();
+    public void throwCurrentGameDices(){
+        Player currentPlayer = game.getCurrentPlayer();
+        currentPlayer.throwDice();
     }
 
     public void refreshView(){
-        //setScoreDiceOne();
-        //setScoreDiceTwo();
-        //setFinalScore();
+        setScoreDiceOne();
+        setScoreDiceTwo();
+        setFinalScore();
     }
 
     public void openView(String view, String viewName) throws IOException {
