@@ -48,6 +48,11 @@ public class Controller implements Initializable {
         this.openView("about.fxml", "About");
     }
 
+    @FXML
+    public void openHomeView() throws IOException {
+        this.openView("home.fxml", "Home");
+    }
+
     public void openView(String view, String viewName) throws IOException {
         URL url = new File(relativePath + "resources/" + view).toURL();
         Parent root1 = FXMLLoader.load(url);
