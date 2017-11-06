@@ -3,6 +3,7 @@ package fr.miage.m2.controllers;
 import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
+import fr.miage.m2.job.Points;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -33,6 +34,9 @@ public class GameController extends Controller implements Initializable {
 
     @FXML
     private Text finalScore;
+
+    @FXML
+    private Text turn;
 
     @FXML
     private Button throwDices;
@@ -116,7 +120,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     public void setFinalScore() {
-        this.finalScore.setText("Final score : "+String.valueOf(diceOne.getValue()+diceTwo.getValue()));
+        this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
     }
 
     public void setThrowDiceButton(){
@@ -133,18 +137,20 @@ public class GameController extends Controller implements Initializable {
         Player currentPlayer = game.getCurrentPlayer();
         if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
             game.doTurn();
-            currentPlayer.setCanPlay(true);
             setPlayerName();
             refreshView();
         } else {
+            this.throwDices.setDisable(true);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Game over");
             alert.setHeaderText("Game over");
             // A changer
-            int finalScore = diceOne.getValue()+diceTwo.getValue();
+            int finalScore = game.getPoint().getPoints();
             alert.setContentText("Congratulations !\nYou won with a final score of " + finalScore + " points !");
             alert.showAndWait();
         }
+
+        this.turn.setText("Tour : "+game.getCurrentTurn()+"/"+game.getNUMBER_OF_TURN());
     }
 
     @FXML
@@ -152,18 +158,30 @@ public class GameController extends Controller implements Initializable {
         Player currentPlayer = game.getCurrentPlayer();
         int[] results;
         results=currentPlayer.throwDice();
+
+        Points pointsCumules = new Points(game.getPoint().getPoints()+this.computeScoreCalculation());
+        game.setPoint(pointsCumules);
+
         updateImages(results);
-        currentPlayer.setCanPlay(false);
         refreshView();
+
+        this.doTurn();
     }
 
+    private int computeScoreCalculation(){
+        int score = 0;
+        int dicesSum = diceOne.getValue()+diceTwo.getValue();
+        if(dicesSum>=7){
+            score = 7;
+        }else{
+            score = dicesSum;
+        }
+        return score;
+    }
     private void updateImages(int[] results) throws MalformedURLException {
         // For windaube
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
         URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
-
-        //System.out.println(urlDiceOne);
-        //System.out.println(urlDiceTwo);
 
         this.diceOneImage.setImage(new Image(String.valueOf(urlDiceOne)));
         this.diceTwoImage.setImage(new Image(String.valueOf(urlDiceTwo)));
@@ -173,7 +191,6 @@ public class GameController extends Controller implements Initializable {
         setScoreDiceOne();
         setScoreDiceTwo();
         setFinalScore();
-        setThrowDiceButton();
     }
 
     public void openView(String view, String viewName) throws IOException {
