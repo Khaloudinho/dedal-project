@@ -115,7 +115,7 @@ public class GameController extends Controller implements Initializable {
         int score = 0;
         int dicesSum = diceOne.getValue()+diceTwo.getValue();
         if(dicesSum>=7){
-            score = 7;
+            score = 10;
         }else{
             score = dicesSum;
         }
