@@ -3,6 +3,7 @@ package fr.miage.m2;
 import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
+import fr.miage.m2.job.Points;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -48,7 +49,12 @@ public class Main extends Application {
         Game game = Game.getInstance();
         game.setPlayer(player);
         game.setDices(dices);
+
+        Points points = new Points(0);
+        game.setPoint(points);
+
         player.setDices(dices);
+
 
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);

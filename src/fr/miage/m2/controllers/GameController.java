@@ -3,6 +3,7 @@ package fr.miage.m2.controllers;
 import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
+import fr.miage.m2.job.Points;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -71,7 +72,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     public void setFinalScore() {
-        this.finalScore.setText("Final score : "+String.valueOf(diceOne.getValue()+diceTwo.getValue()));
+        this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
     }
 
     public void setThrowDiceButton(){
@@ -108,11 +109,26 @@ public class GameController extends Controller implements Initializable {
         Player currentPlayer = game.getCurrentPlayer();
         int[] results;
         results=currentPlayer.throwDice();
+
+        Points pointsCumules = new Points(game.getPoint().getPoints()+this.computeScoreCalculation());
+        game.setPoint(pointsCumules);
+
         updateImages(results);
-        currentPlayer.setCanPlay(false);
         refreshView();
+
+        currentPlayer.setCanPlay(false);
     }
 
+    private int computeScoreCalculation(){
+        int score = 0;
+        int dicesSum = diceOne.getValue()+diceTwo.getValue();
+        if(dicesSum>=7){
+            score = 7;
+        }else{
+            score = dicesSum;
+        }
+        return score;
+    }
     private void updateImages(int[] results) throws MalformedURLException {
         // For windaube
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
