@@ -21,17 +21,14 @@ public class GameController extends Controller {
 
     @FXML
     public void displayPlayerName() throws IOException {
-        this.openView("user.fxml", "Game");
     }
 
     @FXML
     public void displayScoreDiceOne() throws IOException {
-        this.openView("rules.fxml", "Rules");
     }
 
     @FXML
     public void displayScoreDiceTwo() throws IOException {
-        this.openView("about.fxml", "About");
     }
 
     public void openView(String view, String viewName) throws IOException {
