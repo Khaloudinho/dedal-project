@@ -22,21 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        String firstname = "", lastname = "";
-
-        TextInputDialog dialog = new TextInputDialog("walter");
-        dialog.setTitle("Enter your name");
-        dialog.setHeaderText("Please enter your complete name below");
-        dialog.setContentText("Firstname : ");
-        //dialog.setContentText("Lastname : ");
-
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
-            firstname = result.get().toString();
-            //lastname = result.get().toString();
-        }
-
-        Player player = new Player(firstname, lastname, null);
+        Player player = new Player("", "", null);
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -52,7 +38,7 @@ public class Main extends Application {
 
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
-        primaryStage.setTitle("Dedal Project");
+        primaryStage.setTitle("Home");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
