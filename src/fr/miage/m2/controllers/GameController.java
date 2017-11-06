@@ -76,7 +76,6 @@ public class GameController extends Controller implements Initializable {
         //dialog.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
 
         ButtonType submitButton = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
-        // il faut ajouter un listener la pour appeler user !
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         dialog.getDialogPane().getButtonTypes().addAll(submitButton, cancelButton);
 
@@ -150,7 +149,7 @@ public class GameController extends Controller implements Initializable {
             alert.showAndWait();
         }
 
-        this.turn.setText("Tour : "+game.getCurrentTurn()+"/"+game.getNUMBER_OF_TURN());
+        this.turn.setText("Tour : " + game.getCurrentTurn() + "/" + game.getNUMBER_OF_TURN());
     }
 
     @FXML
@@ -169,17 +168,18 @@ public class GameController extends Controller implements Initializable {
     }
 
     private int computeScoreCalculation(){
-        int score = 0;
-        int dicesSum = diceOne.getValue()+diceTwo.getValue();
-        if(dicesSum>=7){
-            score = 7;
-        }else{
+        int score;
+        int dicesSum = diceOne.getValue() + diceTwo.getValue();
+
+        if (dicesSum >= 7) {
+            score = 10;
+        } else {
             score = dicesSum;
         }
+
         return score;
     }
     private void updateImages(int[] results) throws MalformedURLException {
-        // For windaube
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
         URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
 
