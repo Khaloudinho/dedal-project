@@ -1,9 +1,7 @@
 package fr.miage.m2.job;
 
-import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Set;
 
 public class HMIPlayer extends Player implements Observer {
 
