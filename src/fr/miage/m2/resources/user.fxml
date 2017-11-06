@@ -60,13 +60,6 @@
                           <Font name="Arial" size="18.0" />
                       </font>
                   </Text>
-                  <Button fx:id="doTurn" mnemonicParsing="false" onMouseClicked="#doTurn" text="Next turn" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="90.0" />
-                     </GridPane.margin></Button>
                </children>
             </GridPane>
          </bottom>

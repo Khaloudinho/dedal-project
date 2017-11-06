@@ -21,7 +21,7 @@ public class Player implements Serializable {
 	@OneToOne
 	private Game game;
 
-	private boolean canPlay;
+	//private boolean canPlay;
 
 	public Player () {}
 
@@ -97,11 +97,11 @@ public class Player implements Serializable {
 		Id = id;
 	}
 
-	public boolean isCanPlay() {
+	/*public boolean isCanPlay() {
 		return canPlay;
 	}
 
 	public void setCanPlay(boolean canPlay) {
 		this.canPlay = canPlay;
-	}
+	}*/
 }

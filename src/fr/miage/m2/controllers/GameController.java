@@ -75,25 +75,14 @@ public class GameController extends Controller implements Initializable {
         this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
     }
 
-    /*public void setThrowDiceButton(){
-        Player currentPlayer = game.getCurrentPlayer();
-        if(!currentPlayer.isCanPlay()){
-            this.throwDices.setDisable(true);
-        } else {
-            this.throwDices.setDisable(false);
-        }
-    }*/
-
-    @FXML
     public void doTurn(){
         Player currentPlayer = game.getCurrentPlayer();
         if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
             game.doTurn();
-            //currentPlayer.setCanPlay(true);
-            this.throwDices.setDisable(true);
             setPlayerName();
             refreshView();
         } else {
+            this.throwDices.setDisable(true);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Game over");
             alert.setHeaderText("Game over");
@@ -117,9 +106,7 @@ public class GameController extends Controller implements Initializable {
         updateImages(results);
         refreshView();
 
-        //currentPlayer.setCanPlay(false);
-        this.throwDices.setDisable(true);
-
+        this.doTurn();
     }
 
     private int computeScoreCalculation(){
@@ -137,9 +124,6 @@ public class GameController extends Controller implements Initializable {
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
         URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
 
-        //System.out.println(urlDiceOne);
-        //System.out.println(urlDiceTwo);
-
         this.diceOneImage.setImage(new Image(String.valueOf(urlDiceOne)));
         this.diceTwoImage.setImage(new Image(String.valueOf(urlDiceTwo)));
     }
@@ -148,7 +132,6 @@ public class GameController extends Controller implements Initializable {
         setScoreDiceOne();
         setScoreDiceTwo();
         setFinalScore();
-        //setThrowDiceButton();
     }
 
     public void openView(String view, String viewName) throws IOException {
