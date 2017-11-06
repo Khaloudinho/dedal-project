@@ -26,8 +26,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+<<<<<<< HEAD
         String [] names = createTwoFielDialog();
         Player player = new Player(names[0], names[1], null);
+=======
+        Player player = new Player("", "", null);
+>>>>>>> 08c1be2e936aa3ab59046a3a8c516745120f8577
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -47,7 +51,7 @@ public class Main extends Application {
 
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
-        primaryStage.setTitle("Dedal Project");
+        primaryStage.setTitle("Home");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }

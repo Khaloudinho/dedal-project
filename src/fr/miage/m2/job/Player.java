@@ -3,7 +3,6 @@ package fr.miage.m2.job;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Player implements Serializable {
@@ -63,8 +62,8 @@ public class Player implements Serializable {
 
 	public int[] throwDice() {
 		int [] results = new int[2];
-		for (int i=0; i<dices.size();i++) {
-			results[i]=dices.get(i).roll();
+		for (int i=0; i < dices.size(); i++) {
+			results[i] = dices.get(i).roll();
 		}
 		return results;
 	}
