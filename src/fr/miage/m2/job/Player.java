@@ -2,6 +2,7 @@ package fr.miage.m2.job;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class Player implements Serializable {
 	private int points;
 
 	@OneToMany
-	private Set<Dice> dices;
+	private List<Dice> dices;
 
 	@OneToOne
 	private Game game;
@@ -27,7 +28,7 @@ public class Player implements Serializable {
 	 * @param firstname
 	 * @param lastname
 	 */
-	public Player(String firstname, String lastname, Set<Dice> dices) {
+	public Player(String firstname, String lastname, List<Dice> dices) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.dices = dices;
@@ -64,11 +65,11 @@ public class Player implements Serializable {
 		}
 	}
 
-	public Set<Dice> getDices() {
+	public List<Dice> getDices() {
 		return dices;
 	}
 
-	public void setDices(Set<Dice> dices) {
+	public void setDices(List<Dice> dices) {
 		this.dices = dices;
 	}
 
@@ -91,4 +92,5 @@ public class Player implements Serializable {
 	public void setId(int id) {
 		Id = id;
 	}
+
 }

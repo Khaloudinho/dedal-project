@@ -2,6 +2,9 @@ package fr.miage.m2.job;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,19 +15,25 @@ public class Game implements Serializable {
 	private int Id;
 
 	@OneToMany
-	private Set<Player> players;
+	private List<Player> players = new ArrayList<Player>();
 
 	@OneToOne
 	Points point;
 
 	@OneToMany
-	Set<Dice> dices;
+	List<Dice> dices = new ArrayList<Dice>();
 
-	public Game() {
+	private int indexCurrentPlayer=0;
+
+	private static class GameWrapper{
+		private static Game instanceGame = new Game();
 	}
 
-	public Game(Set<Player> players) {
-		this.players = players;
+	public static Game getInstance(){
+		return GameWrapper.instanceGame;
+	}
+
+	public Game() {
 	}
 
 	public void start() {
@@ -50,11 +59,11 @@ public class Game implements Serializable {
 		this.point = point;
 	}
 
-	public Set<Dice> getDices() {
+	public List<Dice> getDices() {
 		return dices;
 	}
 
-	public void setDices(Set<Dice> dices) {
+	public void setDices(List<Dice> dices) {
 		this.dices = dices;
 	}
 
@@ -66,11 +75,29 @@ public class Game implements Serializable {
 		Id = id;
 	}
 
-	public Set<Player> getPlayers() {
+	public List<Player> getPlayers() {
 		return players;
 	}
 
-	public void setPlayers(Set<Player> players) {
+	public void setPlayers(List<Player> players) {
 		this.players = players;
+	}
+
+	public void determineFutureGamerIndex(){
+		if(this.indexCurrentPlayer<players.size()-1){
+			this.indexCurrentPlayer++;
+		}else{
+			this.indexCurrentPlayer=0;
+		}
+	}
+
+	public void doTurn(){
+		//this.joueurCourant.reseterCapaciteJoueur();
+		this.determineFutureGamerIndex();
+		System.out.println(this.getCurrentPlayer().getFirstname()+" joue..");
+	}
+
+	public Player getCurrentPlayer(){
+		return players.get(indexCurrentPlayer);
 	}
 }
