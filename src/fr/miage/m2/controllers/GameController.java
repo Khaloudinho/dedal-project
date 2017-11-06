@@ -79,11 +79,8 @@ public class GameController extends Controller {
         //URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0]+".png").toURL();
         //URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1]+".png").toURL();
 
-        URL urlDiceOne = new File(relativePath + "resources/pictures/" + 1+".png").toURL();
-        URL urlDiceTwo = new File(relativePath + "resources/pictures/" + 2+".png").toURL();
-
-        //String urlDiceOne = relativePath + "resources/pictures/" + 1 +".png";
-        //String urlDiceTwo = relativePath + "resources/pictures/" + 2 +".png";
+        URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
+        URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
 
         System.out.println(urlDiceOne);
         System.out.println(urlDiceTwo);
