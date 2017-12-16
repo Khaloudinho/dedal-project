@@ -42,9 +42,6 @@ public class GameController extends Controller implements Initializable {
     private Button throwDices;
 
     @FXML
-    private Button doTurn;
-
-    @FXML
     private ImageView diceOneImage;
 
     @FXML
@@ -66,49 +63,7 @@ public class GameController extends Controller implements Initializable {
 
     private void updateCurrentPlayerName(){
         Player currentPlayer = game.getCurrentPlayer();
-
-        String firstname = "", lastname = "";
-
-        Dialog<Pair<String, String>> dialog = new Dialog<>();
-        dialog.setTitle("Enter your name");
-        dialog.setHeaderText("Please enter your complete name below");
-
-        //dialog.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
-
-        ButtonType submitButton = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
-        // il faut ajouter un listener la pour appeler user !
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        dialog.getDialogPane().getButtonTypes().addAll(submitButton, cancelButton);
-
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 210, 10, 10));
-
-        TextField askFirstname = new TextField();
-        askFirstname.setPromptText("Walter");
-        TextField askLastname = new TextField();
-        askLastname.setPromptText("White");
-
-        grid.add(new Label("First name :"), 0, 0);
-        grid.add(askFirstname, 1, 0);
-        grid.add(new Label("Last name :"), 0, 1);
-        grid.add(askLastname, 1, 1);
-
-        dialog.getDialogPane().setContent(grid);
-
-        Optional<Pair<String, String>> result = dialog.showAndWait();
-
-        if (result.isPresent()) {
-            firstname = result.get().getKey();
-            lastname = result.get().getValue();
-        }
-
-        currentPlayer.setFirstname(firstname);
-        currentPlayer.setLastname(lastname);
-
-        this.playerName.setText("Player : " + currentPlayer.getFirstname() + " " + currentPlayer.getLastname());
-
+        this.playerName.setText("Player : " + currentPlayer.getLastname() + " " + currentPlayer.getFirstname());
     }
 
     public void setScoreDiceOne() {
@@ -121,15 +76,6 @@ public class GameController extends Controller implements Initializable {
 
     public void setFinalScore() {
         this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
-    }
-
-    public void setThrowDiceButton(){
-        Player currentPlayer = game.getCurrentPlayer();
-        if (!currentPlayer.isCanPlay()){
-            this.throwDices.setDisable(true);
-        } else {
-            this.throwDices.setDisable(false);
-        }
     }
 
     @FXML

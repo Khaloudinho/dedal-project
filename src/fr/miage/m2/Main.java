@@ -1,9 +1,12 @@
 package fr.miage.m2;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,9 @@ import javafx.util.Pair;
 import javafx.geometry.Insets;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.*;
 
@@ -26,12 +32,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-<<<<<<< HEAD
         String [] names = createTwoFielDialog();
         Player player = new Player(names[0], names[1], null);
-=======
-        Player player = new Player("", "", null);
->>>>>>> 08c1be2e936aa3ab59046a3a8c516745120f8577
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -105,7 +107,32 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        /*ArrayList<HighScoreJSON> highScores = new ArrayList<HighScoreJSON>();
+
+        HighScoreJSON highScoreJSON1 = new HighScoreJSON("Said", 10);
+        HighScoreJSON highScoreJSON2 = new HighScoreJSON("Guillaume", 20);
+
+        highScores.add(highScoreJSON1);
+        highScores.add(highScoreJSON2);
+
+        final Gson gson = new GsonBuilder().create();
+
+        String json = gson.toJson(highScores);
+
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("highscores.json", "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        writer.println(json);
+        writer.close();*/
+
+        HighScoreSr highScore = new HighScoreSr();
+        System.out.println(highScore.getUserHighScoreByUserName("Said"));
     }
 
 }
