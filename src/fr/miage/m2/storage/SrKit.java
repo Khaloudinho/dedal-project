@@ -13,4 +13,9 @@ public class SrKit implements PersistKit {
     public Integer getUserHighScoreByUserName(String username) {
         return highScoreSr.getUserHighScoreByUserName(username);
     }
+
+    @Override
+    public void info() {
+        System.out.println("JSON storage");
+    }
 }

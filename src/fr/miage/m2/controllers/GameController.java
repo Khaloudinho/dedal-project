@@ -95,6 +95,8 @@ public class GameController extends Controller implements Initializable {
     private void saveScoreOnAllStorageSystems(String username, Integer highScore){
         this.peristKitJDBC.save(username, highScore);
         this.persistKitJSON.save(username, highScore);
+        this.peristKitJDBC.info();
+        this.persistKitJSON.info();
     }
 
     @FXML

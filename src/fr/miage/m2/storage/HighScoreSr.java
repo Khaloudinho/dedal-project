@@ -14,7 +14,7 @@ public class HighScoreSr extends HighScore {
     private final Gson gson = new GsonBuilder().create();
 
     public String info(){
-        return "I am SR !";
+        return "I am JSON storage system !";
     }
 
     private ArrayList<HighScoreJSON> getHighScoreFromJSON() {

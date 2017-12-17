@@ -107,18 +107,9 @@ public class Game implements Serializable {
 		this.currentTurn = currentTurn;
 	}
 
-	/*public void determineFutureGamerIndex(){
-		if(this.indexCurrentPlayer < players.size()-1){
-			this.indexCurrentPlayer++;
-		}else{
-			this.indexCurrentPlayer=0;
-		}
-	}*/
-
 	public void doTurn(){
-		//this.joueurCourant.reseterCapaciteJoueur();
-		//this.determineFutureGamerIndex();
-		System.out.println(this.getCurrentPlayer().getFirstname()+" joue..");
+		Player player = this.getCurrentPlayer();
+		System.out.println(player.getFirstname()+"_"+player.getLastname()+" joue..");
 		this.currentTurn++;
 	}
 

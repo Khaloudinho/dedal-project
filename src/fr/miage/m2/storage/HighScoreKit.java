@@ -3,7 +3,7 @@ package fr.miage.m2.storage;
 public class HighScoreKit extends HighScore {
 
     public String info(){
-        return "I am JDBC !";
+        return "I am JDBC storage system !";
     }
 
     public Integer getUserHighScoreByUserName(String username) {

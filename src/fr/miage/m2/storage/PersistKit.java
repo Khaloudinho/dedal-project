@@ -6,6 +6,5 @@ public interface PersistKit {
 
     Integer getUserHighScoreByUserName(String username);
 
-
-
+    void info();
 }

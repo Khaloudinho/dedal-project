@@ -13,4 +13,9 @@ public class JdbcKit implements PersistKit {
     public Integer getUserHighScoreByUserName(String username) {
         return highScoreKit.getUserHighScoreByUserName(username);
     }
+
+    @Override
+    public void info() {
+        System.out.println("JDBC storage");
+    }
 }
