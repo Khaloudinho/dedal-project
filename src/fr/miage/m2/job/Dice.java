@@ -5,12 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Observable;
 
 /**
  * Class wich represent a Dice
  */
 @Entity
-public class Dice implements Serializable {
+public class Dice extends Observable implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +25,8 @@ public class Dice implements Serializable {
 	}
 
 	public int getValue() {
+		setChanged();
+		notifyObservers(value);
 		return value;
 	}
 

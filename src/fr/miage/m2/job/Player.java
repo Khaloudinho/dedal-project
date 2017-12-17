@@ -1,14 +1,17 @@
 package fr.miage.m2.job;
 
+import javafx.beans.Observable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Observer;
 
 /**
  * Class wich represents a player (model)
  */
 @Entity
-public class Player implements Serializable {
+public class Player implements Serializable, Observer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -97,4 +100,9 @@ public class Player implements Serializable {
 		Id = id;
 	}
 
+	@Override
+	public void update(java.util.Observable o, Object arg) {
+		System.out.println(this.lastname+"_"+this.firstname + " voit la valeur " +
+				((Integer) arg).intValue() + " d'un de");
+	}
 }

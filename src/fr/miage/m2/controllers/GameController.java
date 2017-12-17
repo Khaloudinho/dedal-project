@@ -70,6 +70,9 @@ public class GameController extends Controller implements Initializable {
 
         int previousHighScore = persistKitJSON.getUserHighScoreByUserName(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname());
         this.previousHighScore.setText("Previous high score : "+String.valueOf(previousHighScore));
+
+        diceOne.addObserver(currentPlayer);
+        diceTwo.addObserver(currentPlayer);
     }
 
     public void setPlayerName() {
