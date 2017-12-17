@@ -4,6 +4,7 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.highscores.HighScoreKitRedis;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

@@ -7,6 +7,7 @@ import fr.miage.m2.job.Points;
 import fr.miage.m2.storage.persistkits.PersistKit;
 import fr.miage.m2.storage.persistkits.jdbc.JDBCKit;
 import fr.miage.m2.storage.persistkits.json.JSONKit;
+import fr.miage.m2.storage.persistkits.redis.RedisKit;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -60,6 +61,7 @@ public class GameController extends Controller implements Initializable {
     //Saving system
     private PersistKit peristKitJDBC = new JDBCKit();
     private PersistKit persistKitJSON = new JSONKit();
+    private PersistKit persistKitRedis = new RedisKit();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -97,8 +99,11 @@ public class GameController extends Controller implements Initializable {
     private void saveScoreOnAllStorageSystems(String username, Integer highScore){
         this.peristKitJDBC.save(username, highScore);
         this.persistKitJSON.save(username, highScore);
+        this.persistKitRedis.save(username, highScore);
+
         this.peristKitJDBC.info();
         this.persistKitJSON.info();
+        this.persistKitRedis.info();
     }
 
     @FXML
