@@ -1,20 +1,20 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.persistkits.json;
 
 import java.io.Serializable;
 
 /**
  *
  */
-public class HighScoreJSON implements Serializable {
+public class HighScoreJSONModel implements Serializable {
 
     private String username;
     private Integer score;
 
-    public HighScoreJSON() {
+    public HighScoreJSONModel() {
 
     }
 
-    public HighScoreJSON(String username, Integer score) {
+    public HighScoreJSONModel(String username, Integer score) {
         this.username = username;
         this.score = score;
     }

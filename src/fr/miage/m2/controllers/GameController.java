@@ -4,22 +4,20 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
-import fr.miage.m2.storage.*;
+import fr.miage.m2.storage.persistkits.jdbc.JDBCKit;
+import fr.miage.m2.storage.persistkits.json.JSONKit;
+import fr.miage.m2.storage.persistkits.PersistKit;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class GameController extends Controller implements Initializable {
@@ -56,8 +54,8 @@ public class GameController extends Controller implements Initializable {
     private Dice diceTwo = game.getDices().get(1);
 
     //Saving system
-    private PersistKit peristKitJDBC = new JdbcKit();
-    private PersistKit persistKitJSON = new SrKit();
+    private PersistKit peristKitJDBC = new JDBCKit();
+    private PersistKit persistKitJSON = new JSONKit();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

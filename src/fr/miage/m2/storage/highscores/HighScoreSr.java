@@ -1,8 +1,9 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.highscores;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import fr.miage.m2.storage.persistkits.json.HighScoreJSONModel;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -17,8 +18,8 @@ public class HighScoreSr extends HighScore {
         return "I am JSON storage system !";
     }
 
-    private ArrayList<HighScoreJSON> getHighScoreFromJSON() {
-        Type collectionType = new TypeToken<Collection<HighScoreJSON>>() {
+    private ArrayList<HighScoreJSONModel> getHighScoreFromJSON() {
+        Type collectionType = new TypeToken<Collection<HighScoreJSONModel>>() {
         }.getType();
 
         String path = "highscores.json";
@@ -33,7 +34,7 @@ public class HighScoreSr extends HighScore {
         return gson.fromJson(bufferedReader, collectionType);
     }
 
-    private void saveScores(ArrayList<HighScoreJSON> scores) {
+    private void saveScores(ArrayList<HighScoreJSONModel> scores) {
         String json = gson.toJson(scores);
 
         PrintWriter writer = null;
@@ -50,12 +51,12 @@ public class HighScoreSr extends HighScore {
 
     @Override
     public Integer getUserHighScoreByUserName(String username) {
-        ArrayList<HighScoreJSON> scores = getHighScoreFromJSON();
+        ArrayList<HighScoreJSONModel> scores = getHighScoreFromJSON();
         return getUserHighScore(scores, username);
     }
 
-    private Integer getUserHighScore(ArrayList<HighScoreJSON> scores, String username){
-        for (HighScoreJSON highScoreJSON:
+    private Integer getUserHighScore(ArrayList<HighScoreJSONModel> scores, String username){
+        for (HighScoreJSONModel highScoreJSON:
              scores) {
             if(highScoreJSON.getUsername().equals(username))
                 return highScoreJSON.getScore();
@@ -63,10 +64,10 @@ public class HighScoreSr extends HighScore {
         return 0;
     }
 
-    private ArrayList<HighScoreJSON> setUserHighScore(ArrayList<HighScoreJSON> scores, String username, Integer currentHighScore){
+    private ArrayList<HighScoreJSONModel> setUserHighScore(ArrayList<HighScoreJSONModel> scores, String username, Integer currentHighScore){
         boolean match = false;
         //Si l'utilisateur existe deja
-        for (HighScoreJSON highScoreJSON:
+        for (HighScoreJSONModel highScoreJSON:
              scores) {
             if(highScoreJSON.getUsername().equals(username)) {
                 Integer previousHighScore = highScoreJSON.getScore();
@@ -79,14 +80,14 @@ public class HighScoreSr extends HighScore {
         }
 
         if (!match)
-            scores.add(new HighScoreJSON(username, currentHighScore));
+            scores.add(new HighScoreJSONModel(username, currentHighScore));
 
         return scores;
     }
 
     public void saveHighScore(String username, Integer score){
         //Mapper le contenu du fichier JSON
-        ArrayList<HighScoreJSON> scores = getHighScoreFromJSON();
+        ArrayList<HighScoreJSONModel> scores = getHighScoreFromJSON();
         setUserHighScore(scores, username, score);
 
         //Renregistrer

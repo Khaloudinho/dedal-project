@@ -1,4 +1,4 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.persistkits.jdbc;
 
 import java.sql.*;
 

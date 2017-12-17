@@ -1,6 +1,9 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.persistkits.json;
 
-public class SrKit implements PersistKit {
+import fr.miage.m2.storage.highscores.HighScoreSr;
+import fr.miage.m2.storage.persistkits.PersistKit;
+
+public class JSONKit implements PersistKit {
 
     HighScoreSr highScoreSr = new HighScoreSr();
 

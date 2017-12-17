@@ -1,4 +1,6 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.highscores;
+
+import fr.miage.m2.storage.persistkits.jdbc.EntityManager;
 
 public class HighScoreKit extends HighScore {
 
@@ -14,7 +16,7 @@ public class HighScoreKit extends HighScore {
     }
 
     @Override
-    void saveHighScore(String username, Integer score) {
+    public void saveHighScore(String username, Integer score) {
         EntityManager.createOrUpdateHighScore(username, score);
     }
 }

@@ -1,4 +1,4 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.highscores;
 
 public abstract class HighScore {
 

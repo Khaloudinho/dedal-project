@@ -1,6 +1,9 @@
-package fr.miage.m2.storage;
+package fr.miage.m2.storage.persistkits.jdbc;
 
-public class JdbcKit implements PersistKit {
+import fr.miage.m2.storage.highscores.HighScoreKit;
+import fr.miage.m2.storage.persistkits.PersistKit;
+
+public class JDBCKit implements PersistKit {
 
     private HighScoreKit highScoreKit = new HighScoreKit();
 
