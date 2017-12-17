@@ -2,6 +2,9 @@ package fr.miage.m2.storage;
 
 import java.io.Serializable;
 
+/**
+ *
+ */
 public class HighScoreJSON implements Serializable {
 
     private String username;

@@ -5,8 +5,8 @@ public class JdbcKit implements PersistKit {
     private HighScoreKit highScoreKit = new HighScoreKit();
 
     @Override
-    public HighScore save() {
-        return new HighScoreKit();
+    public void save(String username, Integer highScore) {
+        highScoreKit.saveHighScore(username, highScore);
     }
 
     @Override

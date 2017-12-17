@@ -5,12 +5,12 @@ public class SrKit implements PersistKit {
     HighScoreSr highScoreSr = new HighScoreSr();
 
     @Override
-    public HighScore save() {
-        return new HighScoreSr();
+    public void save(String username, Integer highScore) {
+        highScoreSr.saveHighScore(username, highScore);
     }
 
     @Override
     public Integer getUserHighScoreByUserName(String username) {
-        return null;
+        return highScoreSr.getUserHighScoreByUserName(username);
     }
 }

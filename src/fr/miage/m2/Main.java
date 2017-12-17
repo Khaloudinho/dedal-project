@@ -6,6 +6,8 @@ import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
 import fr.miage.m2.storage.EntityManager;
 import fr.miage.m2.storage.HighScoreSr;
+import fr.miage.m2.storage.PersistKit;
+import fr.miage.m2.storage.SrKit;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -106,33 +108,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        /*ArrayList<HighScoreJSON> highScores = new ArrayList<HighScoreJSON>();
-
-        HighScoreJSON highScoreJSON1 = new HighScoreJSON("Said", 10);
-        HighScoreJSON highScoreJSON2 = new HighScoreJSON("Guillaume", 20);
-
-        highScores.add(highScoreJSON1);
-        highScores.add(highScoreJSON2);
-
-        final Gson gson = new GsonBuilder().create();
-
-        String json = gson.toJson(highScores);
-
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("highscores.json", "UTF-8");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        writer.println(json);
-        writer.close();*/
-
-        //HighScoreSr highScore = new HighScoreSr();
-        //highScore.saveHighScore("Merde", 15);
-
-        //EntityManager.createOrUpdateHighScore("Merde2", 17);
     }
 
 }

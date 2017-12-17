@@ -51,7 +51,6 @@ public class HighScoreSr extends HighScore {
     @Override
     public Integer getUserHighScoreByUserName(String username) {
         ArrayList<HighScoreJSON> scores = getHighScoreFromJSON();
-
         return getUserHighScore(scores, username);
     }
 
@@ -60,7 +59,6 @@ public class HighScoreSr extends HighScore {
              scores) {
             if(highScoreJSON.getUsername().equals(username))
                 return highScoreJSON.getScore();
-                break;
         }
         return 0;
     }

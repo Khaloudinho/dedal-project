@@ -4,6 +4,7 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -36,6 +37,9 @@ public class GameController extends Controller implements Initializable {
     private Text finalScore;
 
     @FXML
+    private Text previousHighScore;
+
+    @FXML
     private Text turn;
 
     @FXML
@@ -51,10 +55,17 @@ public class GameController extends Controller implements Initializable {
     private Dice diceOne = game.getDices().get(0);
     private Dice diceTwo = game.getDices().get(1);
 
+    //Saving system
+    private PersistKit peristKitJDBC = new JdbcKit();
+    private PersistKit persistKitJSON = new SrKit();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Player currentPlayer = game.getCurrentPlayer();
         this.updateCurrentPlayerName();
+
+        int previousHighScore = persistKitJSON.getUserHighScoreByUserName(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname());
+        this.previousHighScore.setText("Previous high score : "+String.valueOf(previousHighScore));
     }
 
     public void setPlayerName() {
@@ -75,7 +86,15 @@ public class GameController extends Controller implements Initializable {
     }
 
     public void setFinalScore() {
-        this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
+        Player currentPlayer = game.getCurrentPlayer();
+        int highScore = game.getPoint().getPoints();
+        this.finalScore.setText("Final score : "+String.valueOf(highScore));
+        this.saveScoreOnAllStorageSystems(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname(), highScore);
+    }
+
+    private void saveScoreOnAllStorageSystems(String username, Integer highScore){
+        this.peristKitJDBC.save(username, highScore);
+        this.persistKitJSON.save(username, highScore);
     }
 
     @FXML
