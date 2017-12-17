@@ -4,12 +4,13 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.persistkits.PersistKit;
 import fr.miage.m2.storage.persistkits.jdbc.JDBCKit;
 import fr.miage.m2.storage.persistkits.json.JSONKit;
-import fr.miage.m2.storage.persistkits.PersistKit;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -20,6 +21,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * JAVA FX controller which manage the user's view
+ */
 public class GameController extends Controller implements Initializable {
 
     @FXML

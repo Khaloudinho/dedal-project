@@ -10,7 +10,10 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class HighScoreSr extends HighScore {
+/**
+ * HighScore for JSON
+ */
+public class HighScoreKitJSON extends HighScore {
 
     private final Gson gson = new GsonBuilder().create();
 
@@ -29,7 +32,6 @@ public class HighScoreSr extends HighScore {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
 
         return gson.fromJson(bufferedReader, collectionType);
     }

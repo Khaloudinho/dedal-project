@@ -21,14 +21,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class which run the game
+ */
 public class Main extends Application {
 
     private static String relativePath = "src/fr/miage/m2/";
 
+    //Start UX
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
-        String [] names = createTwoFielDialog();
+        String[] names = createTwoFielDialog();
         Player player = new Player(names[0], names[1], null);
 
         Dice diceOne = new Dice();
@@ -54,7 +58,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private String [] createTwoFielDialog(){
+    /**
+     * Create a popup for Lastname ans Firstname of the player
+     *
+     * @return
+     */
+    private String[] createTwoFielDialog() {
         // Create the custom dialog.
         Dialog<Pair<String, String>> dialog = new Dialog<>();
         dialog.setTitle("Personnal informations");
@@ -93,7 +102,7 @@ public class Main extends Application {
 
         Optional<Pair<String, String>> result = dialog.showAndWait();
 
-        String [] names = new String[2];
+        String[] names = new String[2];
         result.ifPresent(pair -> {
             names[0] = pair.getKey();
             names[1] = pair.getValue();
@@ -102,6 +111,11 @@ public class Main extends Application {
         return names;
     }
 
+    /**
+     * Run the application
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }

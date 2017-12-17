@@ -4,6 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Class which implements a simple singleton in order to have one connection to our mysql database
+ */
 public final class EntityManager {
 
     static EntityManager entityManager;

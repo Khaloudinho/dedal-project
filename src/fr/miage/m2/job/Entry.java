@@ -3,6 +3,9 @@ package fr.miage.m2.job;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Class wich will use for storage
+ */
 @Entity
 public class Entry implements Serializable {
 

@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Class wich represents a player (model)
+ */
 @Entity
 public class Player implements Serializable {
 

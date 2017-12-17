@@ -3,6 +3,10 @@ package fr.miage.m2.job;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Class wich is an implementation of Observable
+ * Never use because of JAVA FX system
+ */
 public class HMIDice extends Observable {
 
     private int id;

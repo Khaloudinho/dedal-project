@@ -1,11 +1,11 @@
 package fr.miage.m2.storage.persistkits.jdbc;
 
-import fr.miage.m2.storage.highscores.HighScoreKit;
+import fr.miage.m2.storage.highscores.HighScoreKitJDBC;
 import fr.miage.m2.storage.persistkits.PersistKit;
 
 public class JDBCKit implements PersistKit {
 
-    private HighScoreKit highScoreKit = new HighScoreKit();
+    private HighScoreKitJDBC highScoreKit = new HighScoreKitJDBC();
 
     @Override
     public void save(String username, Integer highScore) {

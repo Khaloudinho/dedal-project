@@ -3,10 +3,12 @@ package fr.miage.m2.job;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+/**
+ * Class which represent a Game
+ * It is in charge of manage turn system and link with the player
+ */
 @Entity
 public class Game implements Serializable {
 

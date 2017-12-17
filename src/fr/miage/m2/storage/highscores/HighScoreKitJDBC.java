@@ -2,7 +2,10 @@ package fr.miage.m2.storage.highscores;
 
 import fr.miage.m2.storage.persistkits.jdbc.EntityManager;
 
-public class HighScoreKit extends HighScore {
+/**
+ * HighScore for JDBC
+ */
+public class HighScoreKitJDBC extends HighScore {
 
     public String info(){
         return "I am JDBC storage system !";
@@ -10,8 +13,6 @@ public class HighScoreKit extends HighScore {
 
     public Integer getUserHighScoreByUserName(String username) {
         Integer userHighScore = EntityManager.getInstance().getUserHighScoreByUserName(username);
-        System.out.println(username+" ="+ userHighScore);
-
         return userHighScore;
     }
 

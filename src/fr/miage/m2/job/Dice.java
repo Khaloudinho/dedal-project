@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+/**
+ * Class wich represent a Dice
+ */
 @Entity
 public class Dice implements Serializable {
 

@@ -3,6 +3,10 @@ package fr.miage.m2.job;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Class wich represent the player
+ * Never use because of JAVA FX system
+ */
 public class HMIPlayer extends Player implements Observer {
 
     public HMIPlayer() { }
