@@ -1,29 +1,27 @@
 package fr.miage.m2;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
-import fr.miage.m2.storage.*;
+import fr.miage.m2.storage.EntityManager;
+import fr.miage.m2.storage.HighScoreSr;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import javafx.geometry.Insets;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class Main extends Application {
 
@@ -107,7 +105,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        //launch(args);
+        launch(args);
         /*ArrayList<HighScoreJSON> highScores = new ArrayList<HighScoreJSON>();
 
         HighScoreJSON highScoreJSON1 = new HighScoreJSON("Said", 10);
@@ -131,8 +129,10 @@ public class Main extends Application {
         writer.println(json);
         writer.close();*/
 
-        HighScoreSr highScore = new HighScoreSr();
-        System.out.println(highScore.getUserHighScoreByUserName("Said"));
+        //HighScoreSr highScore = new HighScoreSr();
+        //highScore.saveHighScore("Merde", 15);
+
+        //EntityManager.createOrUpdateHighScore("Merde2", 17);
     }
 
 }

@@ -3,8 +3,6 @@ package fr.miage.m2.storage;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 
 public final class EntityManager {
 
@@ -16,8 +14,6 @@ public final class EntityManager {
         }
         return entityManager;
     }
-
-
 
     public static Integer getUserHighScoreByUserName(String username) {
         Integer highScore = 0;
@@ -35,5 +31,35 @@ public final class EntityManager {
             e.printStackTrace();
         }
         return highScore;
+    }
+
+    public static void createOrUpdateHighScore(String username, Integer currentHighScore){
+        Integer previousHighScore = getUserHighScoreByUserName(username);
+        boolean alreadyExistingUser = previousHighScore>0;
+
+        //update user's highscore
+        if(alreadyExistingUser){
+            if(previousHighScore<currentHighScore){
+                try {
+                    PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("UPDATE highscores SET score = ? WHERE username = ?;");
+                    pstmt.setInt(1, currentHighScore);
+                    pstmt.setString(2, username);
+                    pstmt.execute();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else{
+            try {
+                PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("INSERT INTO highscores (username, score) VALUES (?, ?);");
+                pstmt.setString(1, username);
+                pstmt.setInt(2, currentHighScore);
+                pstmt.execute();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
