@@ -47,6 +47,7 @@ public class HighScoreKitRedis extends HighScore {
 
             // Save in redis
             jedis.hmset(hscore, donnees);
+            System.out.println(username+" : "+score + "(highscore redis)");
         }
     }
 
