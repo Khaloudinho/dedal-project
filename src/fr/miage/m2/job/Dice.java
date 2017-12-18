@@ -1,21 +1,12 @@
 package fr.miage.m2.job;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Observable;
 
 /**
  * Class wich represent a Dice
  */
-@Entity
 public class Dice extends Observable implements Serializable {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
 
 	private int value;
 	private static Randomizer r = new Randomizer();
@@ -30,28 +21,9 @@ public class Dice extends Observable implements Serializable {
 		return value;
 	}
 
-	public void setValue(int value) {
-		this.value = value;
-	}
-
 	public int roll() {
 		this.value = r.getValue();
 		return this.value;
 	}
 
-	public int getId() {
-		return Id;
-	}
-
-	public void setId(int id) {
-		Id = id;
-	}
-
-	public static Randomizer getR() {
-		return r;
-	}
-
-	public static void setR(Randomizer r) {
-		Dice.r = r;
-	}
 }
