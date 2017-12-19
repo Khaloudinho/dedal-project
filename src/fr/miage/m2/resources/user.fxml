@@ -14,16 +14,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.miage.m2.controllers.GameController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="607.0">
-         <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game" textAlignment="CENTER" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="30.0" />
-               </BorderPane.margin>
-                <font>
-                    <Font name="Arial Bold" size="48.0" />
-                </font>
-            </Text>
-         </top>
          <bottom>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -102,6 +92,18 @@
                </padding>
             </GridPane>
          </center>
+         <top>
+            <AnchorPane prefHeight="128.0" prefWidth="607.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text layoutX="237.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game" textAlignment="CENTER">
+                      <font>
+                          <Font name="Arial Bold" size="48.0" />
+                      </font>
+                  </Text>
+                  <Text fx:id="previousHighScore" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Previous high score :" />
+               </children>
+            </AnchorPane>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

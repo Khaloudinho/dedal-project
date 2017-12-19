@@ -3,21 +3,21 @@ package fr.miage.m2.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextInputDialog;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * JAVA FX Controller which manage whole application
+ */
 public class Controller implements Initializable {
 
     @FXML
@@ -55,6 +55,12 @@ public class Controller implements Initializable {
         this.openView("home.fxml", "Home");
     }
 
+    /**
+     * Custom method in order to open view in our app
+     * @param view
+     * @param viewName
+     * @throws IOException
+     */
     public void openView(String view, String viewName) throws IOException {
         URL url = new File(relativePath + "resources/" + view).toURL();
         Parent root1 = FXMLLoader.load(url);

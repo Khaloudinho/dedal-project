@@ -4,23 +4,27 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.persistkits.PersistKit;
+import fr.miage.m2.storage.persistkits.jdbc.JDBCKit;
+import fr.miage.m2.storage.persistkits.json.JSONKit;
+import fr.miage.m2.storage.persistkits.redis.RedisKit;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * JAVA FX controller which manage the user's view
+ */
 public class GameController extends Controller implements Initializable {
 
     @FXML
@@ -36,13 +40,13 @@ public class GameController extends Controller implements Initializable {
     private Text finalScore;
 
     @FXML
+    private Text previousHighScore;
+
+    @FXML
     private Text turn;
 
     @FXML
     private Button throwDices;
-
-    @FXML
-    private Button doTurn;
 
     @FXML
     private ImageView diceOneImage;
@@ -54,10 +58,21 @@ public class GameController extends Controller implements Initializable {
     private Dice diceOne = game.getDices().get(0);
     private Dice diceTwo = game.getDices().get(1);
 
+    //Saving system
+    private PersistKit peristKitJDBC = new JDBCKit();
+    private PersistKit persistKitJSON = new JSONKit();
+    private PersistKit persistKitRedis = new RedisKit();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Player currentPlayer = game.getCurrentPlayer();
         this.updateCurrentPlayerName();
+
+        int previousHighScore = persistKitJSON.getUserHighScoreByUserName(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname());
+        this.previousHighScore.setText("Previous high score : "+String.valueOf(previousHighScore));
+
+        diceOne.addObserver(currentPlayer);
+        diceTwo.addObserver(currentPlayer);
     }
 
     public void setPlayerName() {
@@ -66,48 +81,7 @@ public class GameController extends Controller implements Initializable {
 
     private void updateCurrentPlayerName(){
         Player currentPlayer = game.getCurrentPlayer();
-
-        String firstname = "", lastname = "";
-
-        Dialog<Pair<String, String>> dialog = new Dialog<>();
-        dialog.setTitle("Enter your name");
-        dialog.setHeaderText("Please enter your complete name below");
-
-        //dialog.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
-
-        ButtonType submitButton = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
-        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        dialog.getDialogPane().getButtonTypes().addAll(submitButton, cancelButton);
-
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 210, 10, 10));
-
-        TextField askFirstname = new TextField();
-        askFirstname.setPromptText("Walter");
-        TextField askLastname = new TextField();
-        askLastname.setPromptText("White");
-
-        grid.add(new Label("First name :"), 0, 0);
-        grid.add(askFirstname, 1, 0);
-        grid.add(new Label("Last name :"), 0, 1);
-        grid.add(askLastname, 1, 1);
-
-        dialog.getDialogPane().setContent(grid);
-
-        Optional<Pair<String, String>> result = dialog.showAndWait();
-
-        if (result.isPresent()) {
-            firstname = result.get().getKey();
-            lastname = result.get().getValue();
-        }
-
-        currentPlayer.setFirstname(firstname);
-        currentPlayer.setLastname(lastname);
-
-        this.playerName.setText("Player : " + currentPlayer.getFirstname() + " " + currentPlayer.getLastname());
-
+        this.playerName.setText("Player : " + currentPlayer.getLastname() + " " + currentPlayer.getFirstname());
     }
 
     public void setScoreDiceOne() {
@@ -119,16 +93,20 @@ public class GameController extends Controller implements Initializable {
     }
 
     public void setFinalScore() {
-        this.finalScore.setText("Final score : "+String.valueOf(game.getPoint().getPoints()));
+        Player currentPlayer = game.getCurrentPlayer();
+        int highScore = game.getPoint().getPoints();
+        this.finalScore.setText("Final score : "+String.valueOf(highScore));
+        this.saveScoreOnAllStorageSystems(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname(), highScore);
     }
 
-    public void setThrowDiceButton(){
-        Player currentPlayer = game.getCurrentPlayer();
-        if (!currentPlayer.isCanPlay()){
-            this.throwDices.setDisable(true);
-        } else {
-            this.throwDices.setDisable(false);
-        }
+    private void saveScoreOnAllStorageSystems(String username, Integer highScore){
+        this.peristKitJDBC.save(username, highScore);
+        this.persistKitJSON.save(username, highScore);
+        this.persistKitRedis.save(username, highScore);
+
+        this.peristKitJDBC.info();
+        this.persistKitJSON.info();
+        this.persistKitRedis.info();
     }
 
     @FXML
@@ -149,7 +127,7 @@ public class GameController extends Controller implements Initializable {
             alert.showAndWait();
         }
 
-        this.turn.setText("Tour : " + game.getCurrentTurn() + "/" + game.getNUMBER_OF_TURN());
+        this.turn.setText("Tour : "+game.getCurrentTurn()+"/"+game.getNUMBER_OF_TURN());
     }
 
     @FXML
@@ -168,18 +146,17 @@ public class GameController extends Controller implements Initializable {
     }
 
     private int computeScoreCalculation(){
-        int score;
-        int dicesSum = diceOne.getValue() + diceTwo.getValue();
-
-        if (dicesSum >= 7) {
+        int score = 0;
+        int dicesSum = diceOne.getValue()+diceTwo.getValue();
+        if(dicesSum>=7){
             score = 10;
-        } else {
+        }else{
             score = dicesSum;
         }
-
         return score;
     }
     private void updateImages(int[] results) throws MalformedURLException {
+        // For windaube
         URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
         URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
 

@@ -4,26 +4,37 @@ import fr.miage.m2.job.Dice;
 import fr.miage.m2.job.Game;
 import fr.miage.m2.job.Player;
 import fr.miage.m2.job.Points;
+import fr.miage.m2.storage.highscores.HighScoreKitRedis;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.File;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
+/**
+ * Class which run the game
+ */
 public class Main extends Application {
 
     private static String relativePath = "src/fr/miage/m2/";
 
+    //Start UX
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
-        Player player = new Player("", "", null);
+        String[] names = createTwoFielDialog();
+        Player player = new Player(names[0], names[1], null);
 
         Dice diceOne = new Dice();
         Dice diceTwo = new Dice();
@@ -41,7 +52,6 @@ public class Main extends Application {
 
         player.setDices(dices);
 
-
         URL url = new File(relativePath + "resources/home.fxml").toURL();
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("Home");
@@ -49,6 +59,64 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Create a popup for Lastname ans Firstname of the player
+     *
+     * @return
+     */
+    private String[] createTwoFielDialog() {
+        // Create the custom dialog.
+        Dialog<Pair<String, String>> dialog = new Dialog<>();
+        dialog.setTitle("Personnal informations");
+
+        // Set the button types.
+        ButtonType loginButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(20, 150, 10, 10));
+
+        TextField lastname = new TextField();
+        lastname.setPromptText("Lastname");
+        TextField firstname = new TextField();
+        firstname.setPromptText("Firstname");
+
+        gridPane.add(new Label("Lastname:"), 0, 0);
+        gridPane.add(lastname, 1, 0);
+        gridPane.add(new Label("Firstname:"), 0, 1);
+        gridPane.add(firstname, 1, 1);
+
+        dialog.getDialogPane().setContent(gridPane);
+
+        // Request focus on the username field by default.
+        Platform.runLater(() -> lastname.requestFocus());
+
+        // Convert the result firstname a username-password-pair when the login button is clicked.
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == loginButtonType) {
+                return new Pair<>(lastname.getText(), firstname.getText());
+            }
+            return null;
+        });
+
+        Optional<Pair<String, String>> result = dialog.showAndWait();
+
+        String[] names = new String[2];
+        result.ifPresent(pair -> {
+            names[0] = pair.getKey();
+            names[1] = pair.getValue();
+        });
+
+        return names;
+    }
+
+    /**
+     * Run the application
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
