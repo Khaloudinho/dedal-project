@@ -7,12 +7,12 @@
 
 ## Used tools
 * JAVA 8 with JAVA FX (1.8.0_144)
-* MySQL 14.14 through JDBC Driver
+* Maven
 
 ## Data access
+* MySQL 14.14 through JDBC Driver
 * JSON
 * Redis
-* Maven
 
 ## How to use it ?
 * Launch Main class
