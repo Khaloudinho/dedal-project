@@ -65,6 +65,9 @@ public class GameController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if(game.getCurrentTurn()>=10)
+            throwDices.setDisable(true);
+
         Player currentPlayer = game.getCurrentPlayer();
         this.updateCurrentPlayerName();
 
