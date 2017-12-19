@@ -1,14 +1,18 @@
-## Projet DEDAL
+## Project name
+* Dedal-project
 
-## Membres du groupe
-BERTRAND Guillaume
-BOUGUETTOUCHA Khaled
+## Authors
+* BERTRAND Guillaume
+* BOUGUETTOUCHA Khaled
 
-## Outils utilisés
-* JAVA 8, JAVA FX (1.8.0_144)
-* MySQL 14.14, JDBC
+## Used tools
+* JAVA 8 with JAVA FX (1.8.0_144)
+* MySQL 14.14 through JDBC Driver
+
+## Data access
 * JSON
 * Redis
+* Maven
 
-## Démarrer le logiciel 
-Lancer la classe Main
+## How to use it ?
+* Launch Main class
