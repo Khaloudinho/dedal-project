@@ -13,7 +13,7 @@ public final class PostgresConnection {
         String dbName = "dedal";
         String driver = "org.postgresql.Driver";
         String userName = "postgres";
-        String password = "toJIN";
+        String password = "root";
         try {
             Class.forName(driver).newInstance();
             this.conn = (Connection) DriverManager.getConnection(url+dbName,userName,password);
