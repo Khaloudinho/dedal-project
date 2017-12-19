@@ -12,7 +12,7 @@ public final class EntityManager {
     static EntityManager entityManager;
 
     public static EntityManager getInstance(){
-        if(entityManager == null) {
+        if (entityManager == null) {
             entityManager = new EntityManager();
         }
         return entityManager;
@@ -21,8 +21,10 @@ public final class EntityManager {
     public static Integer getUserHighScoreByUserName(String username) {
         Integer highScore = 0;
         try {
-            PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("SELECT score FROM highscores WHERE username = ?;");
-            pstmt.setString(1,username);
+            PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement(
+                    "SELECT score FROM highscores WHERE username = ?;");
+
+            pstmt.setString(1, username);
 
             ResultSet resultSet = pstmt.executeQuery();
 
