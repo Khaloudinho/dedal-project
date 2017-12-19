@@ -9,11 +9,13 @@ public final class PostgresConnection {
     public static PostgresConnection db;
 
     private PostgresConnection() {
-        String url= "jdbc:postgresql://127.0.0.1:5432/";
+        String url= "jdbc:postgresql://92.222.86.67:5432/";
+        //String url= "jdbc:postgresql://127.0.0.1:5432/";
         String dbName = "dedal";
         String driver = "org.postgresql.Driver";
         String userName = "postgres";
-        String password = "root";
+        //String password = "rootroot";
+        String password = "toJIN";
         try {
             Class.forName(driver).newInstance();
             this.conn = (Connection) DriverManager.getConnection(url+dbName,userName,password);
