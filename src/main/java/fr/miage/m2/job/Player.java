@@ -17,9 +17,10 @@ public class Player implements Serializable, Observer {
 	public Player () {}
 
 	/**
-	 * 
+	 * Construct a Player
 	 * @param firstname
 	 * @param lastname
+	 * @param dices of the player
 	 */
 	public Player(String firstname, String lastname, List<Dice> dices) {
 		this.firstname = firstname;
@@ -36,6 +37,10 @@ public class Player implements Serializable, Observer {
 		return lastname;
 	}
 
+	/**
+	 * Throw dices of the player
+	 * @return
+	 */
 	public int[] throwDice() {
 		int [] results = new int[2];
 		for (int i=0; i < dices.size(); i++) {
@@ -48,10 +53,12 @@ public class Player implements Serializable, Observer {
 		this.dices = dices;
 	}
 
+	@Override
 	public String toString(){
 		return "Player - Firstname : " + this.firstname + " - Lastname : " + this.lastname + " - Points : " + this.points + "\n";
 	}
 
+	// We follow observer pattern
 	@Override
 	public void update(java.util.Observable o, Object arg) {
 		System.out.println(this.lastname+"_"+this.firstname + " voit la valeur " +

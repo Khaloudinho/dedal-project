@@ -11,6 +11,11 @@ public final class EntityManager {
 
     static EntityManager entityManager;
 
+    /**
+     * Constructs one EntityManager instance,
+     * no thread safe needed only one application and one user
+     * @return
+     */
     public static EntityManager getInstance(){
         if (entityManager == null) {
             entityManager = new EntityManager();
@@ -18,6 +23,11 @@ public final class EntityManager {
         return entityManager;
     }
 
+    /**
+     * Method which interacts with the postgres database in order a high score for a given user
+     * @param username concerned user
+     * @return high score for the concerned user
+     */
     public static Integer getUserHighScoreByUserName(String username) {
         Integer highScore = 0;
         try {
@@ -38,6 +48,11 @@ public final class EntityManager {
         return highScore;
     }
 
+    /**
+     * Method which create or update a high score for a given user
+     * @param username concerned user
+     * @param currentHighScore score candidate for high score
+     */
     public static void createOrUpdateHighScore(String username, Integer currentHighScore){
         Integer previousHighScore = getUserHighScoreByUserName(username);
         boolean alreadyExistingUser = previousHighScore>0;

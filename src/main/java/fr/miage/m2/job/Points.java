@@ -14,6 +14,10 @@ public class Points implements Serializable {
 
 	}
 
+	/**
+	 * Constructs points
+	 * @param points used for scoring system
+	 */
 	public Points(int points) {
 		this.points = points;
 	}

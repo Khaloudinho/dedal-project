@@ -1,7 +1,7 @@
 package fr.miage.m2.storage.highscores;
 
 /**
- * HighScore abstract class wich describe what a HighScore implementation can done
+ * HighScore abstract class which describe what a HighScore implementation can done
  */
 public abstract class HighScore {
     abstract String info();

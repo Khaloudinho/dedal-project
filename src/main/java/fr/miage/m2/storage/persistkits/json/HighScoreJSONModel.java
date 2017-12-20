@@ -3,7 +3,7 @@ package fr.miage.m2.storage.persistkits.json;
 import java.io.Serializable;
 
 /**
- * Class wich correspond to an highScore representation
+ * Class wich correspond to an highScore representation (for JSON structyre)
  */
 public class HighScoreJSONModel implements Serializable {
 
@@ -14,6 +14,11 @@ public class HighScoreJSONModel implements Serializable {
 
     }
 
+    /**
+     * Constructs HighScoreJSONModel
+     * @param username concerned user
+     * @param score high score which is savec
+     */
     public HighScoreJSONModel(String username, Integer score) {
         this.username = username;
         this.score = score;

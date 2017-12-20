@@ -16,11 +16,12 @@ public class Game implements Serializable {
 
 	List<Dice> dices = new ArrayList<Dice>();
 
-	private int indexCurrentPlayer=0;
-
 	private int NUMBER_OF_TURN=10;
 	private int currentTurn=0;
 
+	/**
+	 * Singleton implementation for Game
+	 */
 	private static class GameWrapper{
 		private static Game instanceGame = new Game();
 	}
@@ -29,7 +30,7 @@ public class Game implements Serializable {
 		return GameWrapper.instanceGame;
 	}
 
-	public Game() {
+	private Game() {
 	}
 
 	public Points getPoint() {
@@ -60,13 +61,16 @@ public class Game implements Serializable {
 		return currentTurn;
 	}
 
+	public Player getCurrentPlayer(){
+		return this.player;
+	}
+
+	/**
+	 * Method which compute a turn
+	 */
 	public void doTurn(){
 		Player player = this.getCurrentPlayer();
 		System.out.println(player.getFirstname()+"_"+player.getLastname()+" joue..");
 		this.currentTurn++;
-	}
-
-	public Player getCurrentPlayer(){
-		return this.player;
 	}
 }
