@@ -1,0 +1,8 @@
+fr.miage.m2
+fr.miage.m2.controllers
+fr.miage.m2.job
+fr.miage.m2.storage.highscores
+fr.miage.m2.storage.persistkits
+fr.miage.m2.storage.persistkits.jdbc
+fr.miage.m2.storage.persistkits.json
+fr.miage.m2.storage.persistkits.redis
