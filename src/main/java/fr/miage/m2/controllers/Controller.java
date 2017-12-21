@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     protected static String relativePath = "src/main/";
+    // Buttons on welcome panel
     @FXML
     private Button play;
     @FXML
@@ -55,8 +56,8 @@ public class Controller implements Initializable {
     /**
      * Custom method in order to open view in our app
      *
-     * @param view
-     * @param viewName
+     * @param view     concerned view
+     * @param viewName name of the concerned view
      * @throws IOException
      */
     public void openView(String view, String viewName) throws IOException {

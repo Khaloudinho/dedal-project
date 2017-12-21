@@ -2,12 +2,18 @@ package fr.miage.m2.storage.persistkits.jdbc;
 
 import java.sql.*;
 
+/**
+ * Class which manage PostgresConnection
+ */
 public final class PostgresConnection {
 
     public static PostgresConnection db;
     public Connection conn;
     private Statement statement;
 
+    /**
+     * Constructs PostgresConnection
+     */
     private PostgresConnection() {
         String url = "jdbc:postgresql://92.222.86.67:5432/";
         //String url= "jdbc:postgresql://127.0.0.1:5432/";
