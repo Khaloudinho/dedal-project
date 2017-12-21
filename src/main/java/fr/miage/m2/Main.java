@@ -29,6 +29,15 @@ public class Main extends Application {
 
     private static String relativePath = "src/main/";
 
+    /**
+     * Run the application
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     //Start UX
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -110,15 +119,6 @@ public class Main extends Application {
         });
 
         return names;
-    }
-
-    /**
-     * Run the application
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }

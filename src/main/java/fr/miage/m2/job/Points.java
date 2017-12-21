@@ -8,17 +8,17 @@ import java.io.Serializable;
  */
 public class Points implements Serializable {
 
-	private int points;
+    private int points;
 
-	public Points(){
+    public Points() {
 
-	}
+    }
 
-	public Points(int points) {
-		this.points = points;
-	}
+    public Points(int points) {
+        this.points = points;
+    }
 
-	public int getPoints() {
-		return points;
-	}
+    public int getPoints() {
+        return points;
+    }
 }

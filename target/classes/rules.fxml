@@ -7,39 +7,44 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.miage.m2.controllers.Controller">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.111" fx:controller="fr.miage.m2.controllers.Controller">
     <children>
         <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="400.0" prefWidth="581.0">
             <top>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" textAlignment="CENTER" wrappingWidth="135.7109375" BorderPane.alignment="CENTER">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" textAlignment="CENTER"
+                      wrappingWidth="135.7109375" BorderPane.alignment="CENTER">
                     <BorderPane.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="30.0" top="30.0"/>
                     </BorderPane.margin>
                     <font>
-                        <Font name="Arial Bold" size="48.0" />
+                        <Font name="Arial Bold" size="48.0"/>
                     </font>
                 </Text>
             </top>
             <center>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The game &quot;DiceGame&quot; is based on simple rules. One player could join a game and then throw his two dices. We sum up the points of these two dices until 7 and after in all cases we count 10 as score. There are 10 times to play. Then we get the points of the player." textAlignment="JUSTIFY" wrappingWidth="538.7451171875" BorderPane.alignment="CENTER">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="The game &quot;DiceGame&quot; is based on simple rules. One player could join a game and then throw his two dices. We sum up the points of these two dices until 7 and after in all cases we count 10 as score. There are 10 times to play. Then we get the points of the player."
+                      textAlignment="JUSTIFY" wrappingWidth="538.7451171875" BorderPane.alignment="CENTER">
                     <font>
-                        <Font name="Arial" size="18.0" />
+                        <Font name="Arial" size="18.0"/>
                     </font>
                     <BorderPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" right="30.0"/>
                     </BorderPane.margin>
                 </Text>
             </center>
-         <bottom>
-            <Button mnemonicParsing="false" onMouseClicked="#openHomeView" text="Back to home page" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets bottom="30.0" />
-               </BorderPane.margin>
-            </Button>
-         </bottom>
+            <bottom>
+                <Button mnemonicParsing="false" onMouseClicked="#openHomeView" text="Back to home page"
+                        BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Arial" size="18.0"/>
+                    </font>
+                    <BorderPane.margin>
+                        <Insets bottom="30.0"/>
+                    </BorderPane.margin>
+                </Button>
+            </bottom>
         </BorderPane>
     </children>
 </AnchorPane>

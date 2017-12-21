@@ -20,16 +20,13 @@ import java.util.ResourceBundle;
  */
 public class Controller implements Initializable {
 
+    protected static String relativePath = "src/main/";
     @FXML
     private Button play;
-
     @FXML
     private Button rules;
-
     @FXML
     private Button about;
-
-    protected static String relativePath = "src/main/";
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -57,6 +54,7 @@ public class Controller implements Initializable {
 
     /**
      * Custom method in order to open view in our app
+     *
      * @param view
      * @param viewName
      * @throws IOException

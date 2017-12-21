@@ -7,7 +7,7 @@ import fr.miage.m2.storage.persistkits.jdbc.EntityManager;
  */
 public class HighScoreKitJDBC extends HighScore {
 
-    public String info(){
+    public String info() {
         return "I am JDBC storage system !";
     }
 

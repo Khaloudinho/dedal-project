@@ -8,22 +8,22 @@ import java.util.Observable;
  */
 public class Dice extends Observable implements Serializable {
 
-	private int value;
-	private static Randomizer r = new Randomizer();
+    private static Randomizer r = new Randomizer();
+    private int value;
 
-	public Dice() {
-		this.value = r.getValue();
-	}
+    public Dice() {
+        this.value = r.getValue();
+    }
 
-	public int getValue() {
-		setChanged();
-		notifyObservers(value);
-		return value;
-	}
+    public int getValue() {
+        setChanged();
+        notifyObservers(value);
+        return value;
+    }
 
-	public int roll() {
-		this.value = r.getValue();
-		return this.value;
-	}
+    public int roll() {
+        this.value = r.getValue();
+        return this.value;
+    }
 
 }

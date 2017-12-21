@@ -65,14 +65,14 @@ public class GameController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(game.getCurrentTurn()>=10)
+        if (game.getCurrentTurn() >= 10)
             throwDices.setDisable(true);
 
         Player currentPlayer = game.getCurrentPlayer();
         this.updateCurrentPlayerName();
 
-        int previousHighScore = persistKitJSON.getUserHighScoreByUserName(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname());
-        this.previousHighScore.setText("Previous high score : "+String.valueOf(previousHighScore));
+        int previousHighScore = persistKitJSON.getUserHighScoreByUserName(currentPlayer.getLastname() + "_" + currentPlayer.getFirstname());
+        this.previousHighScore.setText("Previous high score : " + String.valueOf(previousHighScore));
 
         diceOne.addObserver(currentPlayer);
         diceTwo.addObserver(currentPlayer);
@@ -82,27 +82,27 @@ public class GameController extends Controller implements Initializable {
         this.updateCurrentPlayerName();
     }
 
-    private void updateCurrentPlayerName(){
+    private void updateCurrentPlayerName() {
         Player currentPlayer = game.getCurrentPlayer();
         this.playerName.setText("Player : " + currentPlayer.getLastname() + " " + currentPlayer.getFirstname());
     }
 
     public void setScoreDiceOne() {
-        this.scoreDiceOne.setText("Score first dice : "+String.valueOf(diceOne.getValue()));
+        this.scoreDiceOne.setText("Score first dice : " + String.valueOf(diceOne.getValue()));
     }
 
     public void setScoreDiceTwo() {
-        this.scoreDiceTwo.setText("Score second dice : "+String.valueOf(diceTwo.getValue()));
+        this.scoreDiceTwo.setText("Score second dice : " + String.valueOf(diceTwo.getValue()));
     }
 
     public void setFinalScore() {
         Player currentPlayer = game.getCurrentPlayer();
         int highScore = game.getPoint().getPoints();
-        this.finalScore.setText("Final score : "+String.valueOf(highScore));
-        this.saveScoreOnAllStorageSystems(currentPlayer.getLastname()+"_"+currentPlayer.getFirstname(), highScore);
+        this.finalScore.setText("Final score : " + String.valueOf(highScore));
+        this.saveScoreOnAllStorageSystems(currentPlayer.getLastname() + "_" + currentPlayer.getFirstname(), highScore);
     }
 
-    private void saveScoreOnAllStorageSystems(String username, Integer highScore){
+    private void saveScoreOnAllStorageSystems(String username, Integer highScore) {
         this.peristKitJDBC.save(username, highScore);
         this.persistKitJSON.save(username, highScore);
         this.persistKitRedis.save(username, highScore);
@@ -113,7 +113,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     @FXML
-    public void doTurn(){
+    public void doTurn() {
         Player currentPlayer = game.getCurrentPlayer();
         if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
             game.doTurn();
@@ -130,16 +130,16 @@ public class GameController extends Controller implements Initializable {
             alert.showAndWait();
         }
 
-        this.turn.setText("Tour : "+game.getCurrentTurn()+"/"+game.getNUMBER_OF_TURN());
+        this.turn.setText("Tour : " + game.getCurrentTurn() + "/" + game.getNUMBER_OF_TURN());
     }
 
     @FXML
     public void throwCurrentGameDices() throws MalformedURLException {
         Player currentPlayer = game.getCurrentPlayer();
         int[] results;
-        results=currentPlayer.throwDice();
+        results = currentPlayer.throwDice();
 
-        Points pointsCumules = new Points(game.getPoint().getPoints()+this.computeScoreCalculation());
+        Points pointsCumules = new Points(game.getPoint().getPoints() + this.computeScoreCalculation());
         game.setPoint(pointsCumules);
 
         updateImages(results);
@@ -148,26 +148,27 @@ public class GameController extends Controller implements Initializable {
         this.doTurn();
     }
 
-    private int computeScoreCalculation(){
+    private int computeScoreCalculation() {
         int score = 0;
-        int dicesSum = diceOne.getValue()+diceTwo.getValue();
-        if(dicesSum>=7){
+        int dicesSum = diceOne.getValue() + diceTwo.getValue();
+        if (dicesSum >= 7) {
             score = 10;
-        }else{
+        } else {
             score = dicesSum;
         }
         return score;
     }
+
     private void updateImages(int[] results) throws MalformedURLException {
         // For windaube
-        URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] +".png").toURL();
-        URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] +".png").toURL();
+        URL urlDiceOne = new File(relativePath + "resources/pictures/" + results[0] + ".png").toURL();
+        URL urlDiceTwo = new File(relativePath + "resources/pictures/" + results[1] + ".png").toURL();
 
         this.diceOneImage.setImage(new Image(String.valueOf(urlDiceOne)));
         this.diceTwoImage.setImage(new Image(String.valueOf(urlDiceTwo)));
     }
 
-    public void refreshView(){
+    public void refreshView() {
         setScoreDiceOne();
         setScoreDiceTwo();
         setFinalScore();

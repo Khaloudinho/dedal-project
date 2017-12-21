@@ -11,8 +11,8 @@ public final class EntityManager {
 
     static EntityManager entityManager;
 
-    public static EntityManager getInstance(){
-        if(entityManager == null) {
+    public static EntityManager getInstance() {
+        if (entityManager == null) {
             entityManager = new EntityManager();
         }
         return entityManager;
@@ -22,11 +22,11 @@ public final class EntityManager {
         Integer highScore = 0;
         try {
             PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("SELECT score FROM highscores WHERE username = ?;");
-            pstmt.setString(1,username);
+            pstmt.setString(1, username);
 
             ResultSet resultSet = pstmt.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 highScore = resultSet.getInt("score");
             }
 
@@ -36,13 +36,13 @@ public final class EntityManager {
         return highScore;
     }
 
-    public static void createOrUpdateHighScore(String username, Integer currentHighScore){
+    public static void createOrUpdateHighScore(String username, Integer currentHighScore) {
         Integer previousHighScore = getUserHighScoreByUserName(username);
-        boolean alreadyExistingUser = previousHighScore>0;
+        boolean alreadyExistingUser = previousHighScore > 0;
 
         //update user's highscore
-        if(alreadyExistingUser){
-            if(previousHighScore<currentHighScore){
+        if (alreadyExistingUser) {
+            if (previousHighScore < currentHighScore) {
                 try {
                     PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("UPDATE highscores SET score = ? WHERE username = ?;");
                     pstmt.setInt(1, currentHighScore);
@@ -53,7 +53,7 @@ public final class EntityManager {
                     e.printStackTrace();
                 }
             }
-        }else{
+        } else {
             try {
                 PreparedStatement pstmt = PostgresConnection.getDbCon().conn.prepareStatement("INSERT INTO highscores (username, score) VALUES (?, ?);");
                 pstmt.setString(1, username);

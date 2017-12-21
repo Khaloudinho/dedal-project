@@ -10,63 +10,60 @@ import java.util.List;
  */
 public class Game implements Serializable {
 
-	private Player player = new Player();
+    Points point;
+    List<Dice> dices = new ArrayList<Dice>();
+    private Player player = new Player();
+    private int indexCurrentPlayer = 0;
 
-	Points point;
+    private int NUMBER_OF_TURN = 10;
+    private int currentTurn = 0;
 
-	List<Dice> dices = new ArrayList<Dice>();
+    public Game() {
+    }
 
-	private int indexCurrentPlayer=0;
+    public static Game getInstance() {
+        return GameWrapper.instanceGame;
+    }
 
-	private int NUMBER_OF_TURN=10;
-	private int currentTurn=0;
+    public Points getPoint() {
+        return point;
+    }
 
-	private static class GameWrapper{
-		private static Game instanceGame = new Game();
-	}
+    public void setPoint(Points point) {
+        this.point = point;
+    }
 
-	public static Game getInstance(){
-		return GameWrapper.instanceGame;
-	}
+    public List<Dice> getDices() {
+        return dices;
+    }
 
-	public Game() {
-	}
+    public void setDices(List<Dice> dices) {
+        this.dices = dices;
+    }
 
-	public Points getPoint() {
-		return point;
-	}
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
-	public void setPoint(Points point) {
-		this.point = point;
-	}
+    public int getNUMBER_OF_TURN() {
+        return NUMBER_OF_TURN;
+    }
 
-	public List<Dice> getDices() {
-		return dices;
-	}
+    public int getCurrentTurn() {
+        return currentTurn;
+    }
 
-	public void setDices(List<Dice> dices) {
-		this.dices = dices;
-	}
+    public void doTurn() {
+        Player player = this.getCurrentPlayer();
+        System.out.println(player.getFirstname() + "_" + player.getLastname() + " joue..");
+        this.currentTurn++;
+    }
 
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
+    public Player getCurrentPlayer() {
+        return this.player;
+    }
 
-	public int getNUMBER_OF_TURN() {
-		return NUMBER_OF_TURN;
-	}
-
-	public int getCurrentTurn() {
-		return currentTurn;
-	}
-
-	public void doTurn(){
-		Player player = this.getCurrentPlayer();
-		System.out.println(player.getFirstname()+"_"+player.getLastname()+" joue..");
-		this.currentTurn++;
-	}
-
-	public Player getCurrentPlayer(){
-		return this.player;
-	}
+    private static class GameWrapper {
+        private static Game instanceGame = new Game();
+    }
 }

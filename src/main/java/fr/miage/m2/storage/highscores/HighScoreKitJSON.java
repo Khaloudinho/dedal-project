@@ -17,7 +17,7 @@ public class HighScoreKitJSON extends HighScore {
 
     private final Gson gson = new GsonBuilder().create();
 
-    public String info(){
+    public String info() {
         return "I am JSON storage system !";
     }
 
@@ -57,28 +57,28 @@ public class HighScoreKitJSON extends HighScore {
         return getUserHighScore(scores, username);
     }
 
-    private Integer getUserHighScore(ArrayList<HighScoreJSONModel> scores, String username){
-        for (HighScoreJSONModel highScoreJSON:
-             scores) {
-            if(highScoreJSON.getUsername().equals(username))
+    private Integer getUserHighScore(ArrayList<HighScoreJSONModel> scores, String username) {
+        for (HighScoreJSONModel highScoreJSON :
+                scores) {
+            if (highScoreJSON.getUsername().equals(username))
                 return highScoreJSON.getScore();
         }
         return 0;
     }
 
-    private ArrayList<HighScoreJSONModel> setUserHighScore(ArrayList<HighScoreJSONModel> scores, String username, Integer currentHighScore){
+    private ArrayList<HighScoreJSONModel> setUserHighScore(ArrayList<HighScoreJSONModel> scores, String username, Integer currentHighScore) {
         boolean match = false;
         //Si l'utilisateur existe deja
-        for (HighScoreJSONModel highScoreJSON:
-             scores) {
-            if(highScoreJSON.getUsername().equals(username)) {
+        for (HighScoreJSONModel highScoreJSON :
+                scores) {
+            if (highScoreJSON.getUsername().equals(username)) {
                 Integer previousHighScore = highScoreJSON.getScore();
-                if(previousHighScore<currentHighScore)
+                if (previousHighScore < currentHighScore)
                     highScoreJSON.setScore(currentHighScore);
                 match = true;
             }
-             if (match)
-                 break;
+            if (match)
+                break;
         }
 
         if (!match)
@@ -87,7 +87,7 @@ public class HighScoreKitJSON extends HighScore {
         return scores;
     }
 
-    public void saveHighScore(String username, Integer score){
+    public void saveHighScore(String username, Integer score) {
         //Mapper le contenu du fichier JSON
         ArrayList<HighScoreJSONModel> scores = getHighScoreFromJSON();
         setUserHighScore(scores, username, score);
