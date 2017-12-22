@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * JAVA FX Controller which manage whole application
+ * JAVA FX Controller which manages whole application
  */
 public class Controller implements Initializable {
 

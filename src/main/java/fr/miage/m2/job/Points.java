@@ -3,8 +3,8 @@ package fr.miage.m2.job;
 import java.io.Serializable;
 
 /**
- * Class wich represent the Points system
- * no real need but was in inital conception
+ * Class wich represents the Points system
+ * no real need but it was planned in initial conception
  */
 public class Points implements Serializable {
 

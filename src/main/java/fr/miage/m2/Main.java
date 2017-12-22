@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Class which run the game
+ * Class which runs the game
  */
 public class Main extends Application {
 

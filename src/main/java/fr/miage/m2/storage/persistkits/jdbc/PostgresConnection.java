@@ -3,7 +3,7 @@ package fr.miage.m2.storage.persistkits.jdbc;
 import java.sql.*;
 
 /**
- * Class which manage PostgresConnection
+ * Class which manages PostgresConnection
  */
 public final class PostgresConnection {
 

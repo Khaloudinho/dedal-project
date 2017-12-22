@@ -16,7 +16,7 @@ public class HighScoreKitRedis extends HighScore {
     private String hmsetKey = "scores";
 
     /**
-     * Method which give the storage system info
+     * Method which gives the storage system info
      *
      * @return what storage system is
      */
@@ -46,7 +46,7 @@ public class HighScoreKitRedis extends HighScore {
     }
 
     /**
-     * Method which save in file high scores
+     * Method which saves in file high scores
      *
      * @param username
      * @param score
