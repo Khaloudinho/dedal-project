@@ -75,7 +75,7 @@ public class Main extends Application {
     private String[] createTwoFielDialog() {
         // Create the custom dialog.
         Dialog<Pair<String, String>> dialog = new Dialog<>();
-        dialog.setTitle("Personnal informations");
+        dialog.setTitle("Personal informations");
 
         // Set the button types.
         ButtonType loginButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
