@@ -165,13 +165,15 @@ public class GameController extends Controller implements Initializable {
         Player currentPlayer = game.getCurrentPlayer();
 
         // If player can play
-        if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()) {
+        if (game.getCurrentTurn() < game.getNUMBER_OF_TURN()-1) {
             game.doTurn();
             setPlayerName();
             refreshView();
 
             // If player has not to play
+            updateTurnStatus();
         } else {
+            updateTurnStatusFinal();
             // Disable the button of throwing dices
             this.throwDices.setDisable(true);
 
@@ -186,9 +188,15 @@ public class GameController extends Controller implements Initializable {
             alert.setContentText("Congratulations !\nYou won with a final score of " + finalScore + " points !");
             alert.showAndWait();
         }
+    }
 
+    private void updateTurnStatus(){
         // Update turn status
         this.turn.setText("Tour : " + game.getCurrentTurn() + "/" + game.getNUMBER_OF_TURN());
+    }
+
+    private void updateTurnStatusFinal(){
+        this.turn.setText("Tour : " + game.getNUMBER_OF_TURN() + "/" + game.getNUMBER_OF_TURN());
     }
 
     /**
