@@ -14,7 +14,7 @@ public class Game implements Serializable {
     List<Dice> dices = new ArrayList<Dice>();
     private Player player = new Player();
     private int NUMBER_OF_TURN = 10;
-    private int currentTurn = 1;
+    private int currentTurn = 0;
 
     private Game() {
     }
