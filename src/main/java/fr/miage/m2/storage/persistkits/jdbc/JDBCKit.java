@@ -11,7 +11,7 @@ public class JDBCKit implements PersistKit {
     private HighScoreKitJDBC highScoreKit = new HighScoreKitJDBC();
 
     /**
-     * Method which call HighScoreKit.. in order to it
+     * Method which calls HighScoreKit.. in order to it
      *
      * @param username  name of the concerned user
      * @param highScore possible high score
@@ -22,7 +22,7 @@ public class JDBCKit implements PersistKit {
     }
 
     /**
-     * Method which call the HighScoreKit..
+     * Method which calls the HighScoreKit..
      *
      * @param username name of the concerned user
      * @return high score
@@ -33,7 +33,7 @@ public class JDBCKit implements PersistKit {
     }
 
     /**
-     * Method which give info the name about current Kit
+     * Method which gives info the name about current Kit
      */
     @Override
     public void info() {

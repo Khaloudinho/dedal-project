@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class which represent a Game
+ * Class which represents a Game
  * It is in charge of manage turn system and link with the player
  */
 public class Game implements Serializable {
@@ -14,7 +14,7 @@ public class Game implements Serializable {
     List<Dice> dices = new ArrayList<Dice>();
     private Player player = new Player();
     private int NUMBER_OF_TURN = 10;
-    private int currentTurn = 0;
+    private int currentTurn = 1;
 
     private Game() {
     }
@@ -56,7 +56,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * Method which compute a turn
+     * Method which computes a turn
      */
     public void doTurn() {
         Player player = this.getCurrentPlayer();

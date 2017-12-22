@@ -3,7 +3,7 @@ package fr.miage.m2.storage.persistkits.redis;
 import redis.clients.jedis.Jedis;
 
 /**
- *
+ * Class which manages the communication with Redis database
  */
 public final class JedisConnection {
 

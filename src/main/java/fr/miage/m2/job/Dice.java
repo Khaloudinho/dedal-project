@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Observable;
 
 /**
- * Class wich represent a Dice
+ * Class wich represents a Dice
  */
 public class Dice extends Observable implements Serializable {
 
@@ -25,7 +25,7 @@ public class Dice extends Observable implements Serializable {
     }
 
     /**
-     * Method which randomly roll a current dice
+     * Method which randomly rolls a current dice
      *
      * @return
      */

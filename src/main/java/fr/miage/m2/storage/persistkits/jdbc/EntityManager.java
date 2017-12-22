@@ -51,7 +51,7 @@ public final class EntityManager {
     }
 
     /**
-     * Method which create or update a high score for a given user
+     * Method which creates or updates a high score for a given user
      *
      * @param username         concerned user
      * @param currentHighScore score candidate for high score

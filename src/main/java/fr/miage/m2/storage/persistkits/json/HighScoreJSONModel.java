@@ -3,7 +3,7 @@ package fr.miage.m2.storage.persistkits.json;
 import java.io.Serializable;
 
 /**
- * Class wich correspond to an highScore representation (for JSON structyre)
+ * Class which corresponds to an highScore representation (for JSON structyre)
  */
 public class HighScoreJSONModel implements Serializable {
 

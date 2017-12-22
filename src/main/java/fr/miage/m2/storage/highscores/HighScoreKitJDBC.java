@@ -8,7 +8,7 @@ import fr.miage.m2.storage.persistkits.jdbc.EntityManager;
 public class HighScoreKitJDBC extends HighScore {
 
     /**
-     * Method which give the storage system info
+     * Method which gives the storage system info
      *
      * @return what storage system is
      */
@@ -18,7 +18,7 @@ public class HighScoreKitJDBC extends HighScore {
     }
 
     /**
-     * Method which call EntityManager in order to get the high score
+     * Method which calls EntityManager in order to get the high score
      *
      * @param username concerned user
      * @return high score
@@ -30,7 +30,7 @@ public class HighScoreKitJDBC extends HighScore {
     }
 
     /**
-     * Method which call EntityManager in order to save or not the high score candidate
+     * Method which calls EntityManager in order to save or not the high score candidate
      *
      * @param username concerned user
      * @param score    possible high score

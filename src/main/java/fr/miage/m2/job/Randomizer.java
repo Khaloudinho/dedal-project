@@ -3,7 +3,7 @@ package fr.miage.m2.job;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Class use in order to generate numbers for dices.
+ * Class used in order to generate numbers for dices.
  */
 public class Randomizer {
 

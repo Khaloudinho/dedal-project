@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * JAVA FX controller which manage the user's view
+ * JAVA FX controller which manages the user's view
  */
 public class GameController extends Controller implements Initializable {
 
@@ -66,7 +66,7 @@ public class GameController extends Controller implements Initializable {
     private PersistKit persistKitRedis = new RedisKit();
 
     /**
-     * Method which compute init operations before running the view associated with this controller
+     * Method which computes init operations before running the view associated with this controller
      *
      * @param location
      * @param resources
@@ -96,14 +96,14 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method which update the player name
+     * Method which updates the player name
      */
     public void setPlayerName() {
         this.updateCurrentPlayerName();
     }
 
     /**
-     * Method which update on the view the player name
+     * Method which updates on the view the player name
      */
     private void updateCurrentPlayerName() {
         Player currentPlayer = game.getCurrentPlayer();
@@ -111,22 +111,22 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method which update on the view the dice one score
+     * Method which updates on the view the dice one score
      */
     public void setScoreDiceOne() {
         this.scoreDiceOne.setText("Score first dice : " + String.valueOf(diceOne.getValue()));
     }
 
     /**
-     * Method which update on the view the dice two score
+     * Method which updates on the view the dice two score
      */
     public void setScoreDiceTwo() {
         this.scoreDiceTwo.setText("Score second dice : " + String.valueOf(diceTwo.getValue()));
     }
 
     /**
-     * Method which update on the view the final score
-     * And ask to save (or not) it as potential new high score
+     * Method which updates on the view the final score
+     * And asks to save (or not) it as potential new high score
      */
     public void setFinalScore() {
         Player currentPlayer = game.getCurrentPlayer();
@@ -142,7 +142,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method which call existing save systems
+     * Method which calls existing save systems
      *
      * @param username  concerned user
      * @param highScore potential high score
@@ -200,7 +200,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method which call dice throwing
+     * Method which calls dice throwing
      *
      * @throws MalformedURLException
      */
@@ -244,7 +244,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method which update dices pictures
+     * Method which updates dices pictures
      *
      * @param results get results of the dices in the system
      * @throws MalformedURLException
@@ -261,7 +261,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     /**
-     * Method who ask all parts of the gamer's view to refresh
+     * Method who asks all parts of the gamer's view to refresh
      */
     public void refreshView() {
         setScoreDiceOne();

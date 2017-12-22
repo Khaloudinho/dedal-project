@@ -19,7 +19,7 @@ public class HighScoreKitJSON extends HighScore {
     private final Gson gson = new GsonBuilder().create();
 
     /**
-     * Method which give the storage system info
+     * Method which gives the storage system info
      *
      * @return what storage system is
      */
@@ -29,7 +29,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Method which map all save scores in file in objects
+     * Method which maps all save scores in file in objects
      *
      * @return list of mapped pbjects
      */
@@ -49,7 +49,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Sub method which save in file high scores (JSON format)
+     * Sub method which saves in file high scores (JSON format)
      *
      * @param scores we want save
      */
@@ -73,7 +73,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Method which call sub methods in order to get the high score
+     * Method which calls sub methods in order to get the high score
      *
      * @param username concerned user
      * @return high score
@@ -85,7 +85,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Method which get the high score of a given user
+     * Method which gets the high score of a given user
      *
      * @param scores   avaiable scores for all users
      * @param username concerned user
@@ -102,7 +102,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Method which update high score or add a new user with his high score
+     * Method which updates high score or add a new user with his high score
      *
      * @param scores           map data from json (objects)
      * @param username         concerned user
@@ -137,7 +137,7 @@ public class HighScoreKitJSON extends HighScore {
     }
 
     /**
-     * Method which call subMethods in order to save or not the high score candidate
+     * Method which calls subMethods in order to save or not the high score candidate
      *
      * @param username concerned user
      * @param score    possible high score
