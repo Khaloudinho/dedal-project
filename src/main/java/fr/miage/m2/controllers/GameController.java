@@ -75,7 +75,7 @@ public class GameController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Check if we are not cheating
-        if (game.getCurrentTurn() >= 10)
+        if (game.getCurrentTurn() >= 9)
             throwDices.setDisable(true);
 
         // Get the gamer (see main in order to understand)
@@ -235,10 +235,10 @@ public class GameController extends Controller implements Initializable {
     private int computeScoreCalculation() {
         int score = 0;
         int dicesSum = diceOne.getValue() + diceTwo.getValue();
-        if (dicesSum >= 7) {
+        if (dicesSum == 7) {
             score = 10;
         } else {
-            score = dicesSum;
+            score = 0;
         }
         return score;
     }
